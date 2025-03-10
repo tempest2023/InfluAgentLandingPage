@@ -37,6 +37,10 @@ export default function Header() {
           <Link href="/InfluAgentPreSeedBP/index.html" className="text-indigo-600 hover:text-indigo-800 font-medium">
             Pre-Seed BP
           </Link>
+
+          <Link href="/InfluAgentMobileDesign/index.html" className="text-indigo-600 hover:text-indigo-800 font-medium">
+            Mobile App
+          </Link>
         </nav>
         <Button variant="outline">Get Started</Button>
       </div>

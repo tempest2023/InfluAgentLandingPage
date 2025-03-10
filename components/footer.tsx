@@ -23,7 +23,7 @@ export default function Footer() {
           </nav>
         </div>
         <div className="mt-8 text-center text-gray-400">
-          &copy; {new Date().getFullYear()} InfluAgent. All rights reserved.
+          &copy; 2024 AGI Studio. All rights reserved.
         </div>
       </div>
     </footer>

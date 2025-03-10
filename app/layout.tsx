@@ -2,9 +2,22 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.dev',
+  title: 'InfluAgent',
+  description: 'InfluAgent enhances everyone\'s social growth with AI.',
+  icons: {
+    icon: [
+      {
+        url: '/camera.webp',
+        type: 'image/webp',
+      }
+    ],
+    apple: [
+      {
+        url: '/camera.webp',
+        type: 'image/webp',
+      }
+    ]
+  }
 }
 
 export default function RootLayout({
@@ -14,6 +27,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/camera.webp" type="image/webp" />
+        <link rel="apple-touch-icon" href="/camera.webp" type="image/webp" />
+      </head>
       <body>{children}</body>
     </html>
   )

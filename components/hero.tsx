@@ -25,7 +25,7 @@ export default function Hero() {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-lg transform rotate-6 shadow-lg"></div>
               <Image
-                src="/placeholder.svg?height=400&width=600"
+                src="/Dashboard.png"
                 alt="InfluAgent Dashboard"
                 width={600}
                 height={400}

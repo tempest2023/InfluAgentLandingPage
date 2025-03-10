@@ -1,22 +1,20 @@
-import { Target, Zap, LayoutDashboard } from "lucide-react"
+import { Target, Zap, LayoutDashboard, Clock, DollarSign, Compass } from "lucide-react"
 
 const features = [
   {
-    icon: Target,
-    title: "Goal Definition & Growth Plan",
-    description: "Set your social media goals and get a customized growth plan tailored to your objectives.",
+    icon: Clock,
+    title: "Time-Consuming Process",
+    description: "Building an influencer presence requires consistent posting, interaction, and engagement—nearly impossible to maintain at scale.",
   },
   {
-    icon: Zap,
-    title: "Auto Execution of Daily Tasks",
-    description:
-      "Our AI agent automatically performs daily tasks to grow and engage your audience, saving you time and effort.",
+    icon: DollarSign,
+    title: "Inefficient & Costly",
+    description: "Traditional social media management through agencies or freelancers is expensive with inconsistent quality.",
   },
   {
-    icon: LayoutDashboard,
-    title: "Collaborative Dashboard",
-    description:
-      "Monitor progress, analyze performance, and collaborate with team members in real-time through our intuitive dashboard.",
+    icon: Compass,
+    title: "Lack of Strategy",
+    description: "Many accounts post regularly but lack clear strategy for targeting audience and optimal timing.",
   },
 ]
 
@@ -24,7 +22,7 @@ export default function Features() {
   return (
     <section id="features" className="py-12 md:py-20 bg-gray-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">Key Features</h2>
+        <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">The Problems We Solve</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <div

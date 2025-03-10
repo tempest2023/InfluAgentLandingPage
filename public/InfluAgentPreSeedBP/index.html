@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfluAgent - Pre-Seed Business Plan</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(120deg, #4F46E5, #7C3AED);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .feature-icon {
+            font-size: 2rem;
+            background: -webkit-linear-gradient(120deg, #4F46E5, #7C3AED);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            overflow: auto;
+            cursor: pointer;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+        .zoomable {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .zoomable:hover {
+            transform: scale(1.02);
+        }
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 15px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1001;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="w-full bg-white shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <button onclick="window.location.href='/'" class="text-2xl font-bold text-gray-800 hover:text-indigo-600 transition-colors duration-200">
+                    InfluAgent
+                </button>
+                <span class="text-gray-400">|</span>
+                <span class="text-indigo-600 font-semibold">Pre-Seed Business Plan</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button onclick="window.location.href='/'" class="px-4 py-2 text-indigo-600 hover:text-indigo-800 font-medium transition-colors duration-200">
+                    <i class="fas fa-arrow-left mr-2"></i>Back to Landing Page
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-20">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-10 lg:mb-0">
+                    <h1 class="text-5xl font-bold mb-6">InfluAgent</h1>
+                    <h2 class="text-3xl font-semibold mb-6">Redefining the Future of Autonomous AI in Social Media</h2>
+                    <p class="text-xl mb-8">
+                        Not just another AI tool—a truly autonomous agent empowering individuals and businesses to build, scale, and thrive in social media.
+                    </p>
+                    <!-- <div class="flex space-x-4">
+                        <button class="bg-white text-indigo-600 px-8 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition">
+                            Get Started
+                        </button>
+                        <button class="border-2 border-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-indigo-600 transition">
+                            Learn More
+                        </button>
+                    </div> -->
+                </div>
+                <div class="lg:w-1/2">
+                    <img src="./Dashboard.png" alt="AI Social Media" class="rounded-lg shadow-2xl zoomable">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">The Problems We Solve</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Problem Cards -->
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
+                    <div class="text-4xl mb-4 text-indigo-600">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Time-Consuming Process</h3>
+                    <p class="text-gray-600">
+                        Building an influencer presence requires consistent posting, interaction, and engagement—nearly impossible to maintain at scale.
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
+                    <div class="text-4xl mb-4 text-indigo-600">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Inefficient & Costly</h3>
+                    <p class="text-gray-600">
+                        Traditional social media management through agencies or freelancers is expensive with inconsistent quality.
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
+                    <div class="text-4xl mb-4 text-indigo-600">
+                        <i class="fas fa-compass"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Lack of Strategy</h3>
+                    <p class="text-gray-600">
+                        Many accounts post regularly but lack clear strategy for targeting audience and optimal timing.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Our Solution</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="flex items-start space-x-4">
+                        <div class="text-3xl text-indigo-600">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">AI-Driven Automation</h3>
+                            <p class="text-gray-600">Autonomous agent handling daily social media operations, from posting to engagement.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="text-3xl text-indigo-600">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Smart Growth Strategy</h3>
+                            <p class="text-gray-600">AI develops and executes customized, long-term growth strategies.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="text-3xl text-indigo-600">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Real-time Dashboard</h3>
+                            <p class="text-gray-600">Monitor progress, refine content, and maintain control with our intuitive interface.</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img src="./Dashboard.png" alt="InfluAgent Dashboard" class="rounded-lg shadow-xl zoomable">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Section -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Product Features</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+    
+          <!-- Feature 1: Persistent Execution -->
+          <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
+            <img 
+              src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80" 
+              alt="AI agent carrying out tasks 24/7" 
+              class="w-full rounded-lg mb-6 zoomable h-64 object-cover"
+            />
+            <h3 class="text-xl font-bold mb-4">Persistent Execution</h3>
+            <ul class="list-disc list-inside text-gray-600 leading-relaxed">
+              <li><strong>24/7 Continuous Operation</strong>: Even if you're offline, the AI Agent continues posting and engaging.</li>
+              <li><strong>Uninterrupted Tasks</strong>: Recovers from unexpected browser or device failures without losing progress.</li>
+              <li><strong>Auto-Recovery Mechanism</strong>: Adapts strategies to platform rule changes or API issues to ensure task completion.</li>
+              <li>Let your social accounts grow around the clock with zero manual oversight.</li>
+            </ul>
+          </div>
+    
+          <!-- Feature 2: Task Planning & Execution -->
+          <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
+            <img 
+              src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80" 
+              alt="AI-driven task planning for multiple social platforms" 
+              class="w-full rounded-lg mb-6 zoomable h-64 object-cover"
+            />
+            <h3 class="text-xl font-bold mb-4">Task Planning & Execution</h3>
+            <ul class="list-disc list-inside text-gray-600 leading-relaxed">
+              <li><strong>Full Account Lifecycle Management</strong>: Covers everything from account creation and content planning to monetization.</li>
+              <li><strong>Intelligent Task Breakdown</strong>: Translates long-term goals (e.g., "gain 100k followers in 3 months") into actionable daily/weekly tasks.</li>
+              <li><strong>Cross-Platform Support</strong>: Works seamlessly with Instagram, Twitter, TikTok, LinkedIn, YouTube, and more.</li>
+              <li>Streamlines your workflow by automatically generating execution plans, saving you countless hours of manual planning.</li>
+            </ul>
+          </div>
+    
+          <!-- Feature 3: Interactive & Goal Correction -->
+          <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
+            <img 
+              src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80" 
+              alt="Real-time goal adjustments through user interactions" 
+              class="w-full rounded-lg mb-6 zoomable h-64 object-cover"
+            />
+            <h3 class="text-xl font-bold mb-4">Interactive & Goal Correction</h3>
+            <ul class="list-disc list-inside text-gray-600 leading-relaxed">
+              <li><strong>Personalized Goal Calibration</strong>: Adjust targets on-the-fly, such as switching content focus or growth strategies.</li>
+              <li><strong>Smart Feedback Optimization</strong>: Uses real-time data (engagement rate, follower growth) to fine-tune tactics and suggest improvements.</li>
+              <li><strong>Multi-Modal Input</strong>: Provides flexibility with text, voice, and image inputs for strategy updates.</li>
+              <li>Your AI Agent acts like a proactive consultant, adapting swiftly based on your evolving needs.</li>
+            </ul>
+          </div>
+    
+          <!-- Feature 4: Progress Tracking & Checkpoints -->
+          <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
+            <img 
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80" 
+              alt="Real-time analytics dashboard for social growth" 
+              class="w-full rounded-lg mb-6 zoomable h-64 object-cover"
+            />
+            <h3 class="text-xl font-bold mb-4">Progress Tracking & Checkpoints</h3>
+            <ul class="list-disc list-inside text-gray-600 leading-relaxed">
+              <li><strong>Visualized Performance Metrics</strong>: See follower counts, engagement rates, and posting frequency at a glance.</li>
+              <li><strong>Activity Logs</strong>: Access detailed records of every post, comment, and direct message for full transparency.</li>
+              <li><strong>Intelligent Analysis Reports</strong>: Generates periodic growth summaries with recommendations for optimal posting times and trending topics.</li>
+              <li>Gain actionable insights from your data and refine your growth strategy continuously.</li>
+            </ul>
+          </div>
+    
+          <!-- Feature 5: Self-Reflection & Auto-Retry -->
+          <div class="bg-white p-6 rounded-xl shadow-lg card-hover md:col-span-2 lg:col-span-1">
+            <img 
+              src="https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?auto=format&fit=crop&q=80" 
+              alt="AI agent analyzing and retrying tasks for optimal results" 
+              class="w-full rounded-lg mb-6 zoomable h-64 object-cover"
+            />
+            <h3 class="text-xl font-bold mb-4">Self-Reflection & Auto-Retry</h3>
+            <ul class="list-disc list-inside text-gray-600 leading-relaxed">
+              <li><strong>Automatic Retry for Failed Tasks</strong>: Diagnoses issues (e.g., posting errors) and re-attempts them without manual intervention.</li>
+              <li><strong>Reflection Mechanism</strong>: Regularly reviews operational data, shedding ineffective tactics and evolving its approach.</li>
+              <li><strong>Adaptive to Platform Changes</strong>: Quickly pivots strategies in response to algorithm updates or policy shifts.</li>
+              <li>Acts like an experienced social media manager, learning and iterating for sustained audience growth.</li>
+            </ul>
+          </div>
+    
+        </div>
+      </div>
+    </section>
+
+    <!-- Market & Business Model Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Market & Pricing</h2>
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-2xl font-bold mb-4 gradient-text">We provide various Subscription Plan for different targeted users</h2>
+            </div>
+
+            <!-- Pricing Cards -->
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Basic Plan -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 transform hover:scale-105 hover:bg-indigo-600 hover:shadow-2xl transition-all duration-300 group">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold mb-4 group-hover:text-white">Basic</h3>
+                        <div class="text-4xl font-bold mb-2 group-hover:text-white">$99<span class="text-lg text-gray-500 group-hover:text-indigo-200">/mo</span></div>
+                        <p class="text-gray-600 group-hover:text-indigo-200">For personal brand builders</p>
+                    </div>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"></i>
+                            <span class="group-hover:text-white">5 AI-generated posts/day</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"></i>
+                            <span class="group-hover:text-white">75 automated comments/day</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"></i>
+                            <span class="group-hover:text-white">250 targeted views/day</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"></i>
+                            <span class="group-hover:text-white">4 hours/day AI agent runtime</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"></i>
+                            <span class="group-hover:text-white">Basic analytics dashboard</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pro Plan -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 transform hover:scale-105 hover:bg-indigo-600 hover:shadow-2xl transition-all duration-300 group relative">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <span class="bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                            Most Popular
+                        </span>
+                    </div>
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold mb-4 group-hover:text-white">Pro</h3>
+                        <div class="text-4xl font-bold mb-2 group-hover:text-white">$500<span class="text-lg text-gray-500 group-hover:text-indigo-200">/mo</span></div>
+                        <p class="text-gray-600 group-hover:text-indigo-200">For serious creators</p>
+                        <div class="mt-4 bg-indigo-500 text-white text-sm py-2 px-4 rounded-lg inline-block">
+                            14-day free trial included
+                        </div>
+                    </div>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"></i>
+                            <span class="group-hover:text-white">10 AI-optimized posts/day</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"></i>
+                            <span class="group-hover:text-white">150 strategic comments/day</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"></i>
+                            <span class="group-hover:text-white">500 curated views/day</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"></i>
+                            <span class="group-hover:text-white">24 hours/day AI agent runtime</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"></i>
+                            <span class="group-hover:text-white">Extended analytics & insights</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"></i>
+                            <span class="group-hover:text-white">Advanced growth suggestions</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 transform hover:scale-105 hover:bg-indigo-600 hover:shadow-2xl transition-all duration-300 group">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold mb-4 group-hover:text-white">Enterprise</h3>
+                        <div class="text-4xl font-bold mb-2 group-hover:text-white">Custom</div>
+                        <p class="text-gray-600 group-hover:text-indigo-200">For businesses & influencers</p>
+                    </div>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"></i>
+                            <span class="group-hover:text-white">Customizable posting strategy</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"></i>
+                            <span class="group-hover:text-white">Unlimited daily engagement</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"></i>
+                            <span class="group-hover:text-white">Long-term AI agent availability</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"></i>
+                            <span class="group-hover:text-white">Dedicated account manager</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"></i>
+                            <span class="group-hover:text-white">Custom dashboard setup</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"></i>
+                            <span class="group-hover:text-white">Priority support & training</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Our Team</h2>
+            <div class="max-w-2xl mx-auto">
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                    <img src="https://media.licdn.com/dms/image/v2/C4E03AQGPa-fE0hAM9w/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1635805570581?e=1746662400&v=beta&t=ev9O50zIBPXp1znz3E1odFomYIYjHsvFlqvHWtgvhpc" 
+                         alt="Taoren Pitt" 
+                         class="w-32 h-32 rounded-full mx-auto mb-6 zoomable object-cover">
+                    <h3 class="text-2xl font-bold mb-2">Tempest</h3>
+                    <p class="text-xl text-indigo-600 mb-4">Co-Founder & CEO</p>
+                    <div class="space-y-2 text-gray-600">
+                        <p class="flex items-center justify-center gap-2">
+                            Software Engineer @TikTok
+                            <i class="fab fa-tiktok text-black"></i>
+                        </p>
+                        <p class="flex items-center justify-center gap-2">
+                            FullStack Engineer @Alipay
+                            <i class="fab fa-alipay text-blue-500"></i>
+                        </p>
+                    </div>
+                    <div class="flex justify-center space-x-4 mt-6">
+                        <a href="https://www.linkedin.com/in/taoren-pitt/" class="hover:text-indigo-800">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://tempest.fun/" class="hover:text-indigo-800">
+                            <i class="fas fa-globe"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fund Allocation Section -->
+    <section class="py-20 bg-gray-50">
+      <div class="w-full">
+          <iframe 
+              id="fundAllocationFrame"
+              src="./fund_allocation.html" 
+              class="w-full"
+              style="border: none; width: 100%; overflow: hidden;height: 2800px;"
+              scrolling="no"
+              title="Fund Allocation Details"
+          ></iframe>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-2xl font-bold mb-6">Ready to Transform Your Social Media Presence?</h2>
+            <a href="mailto:tar118@pitt.edu" class="inline-block bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition">
+                Contact Us Now
+            </a>
+            <div class="mt-8 text-gray-400">
+                <p>© 2024 AGI Studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Modal functionality
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const closeBtn = document.getElementsByClassName('close')[0];
+
+        // Add click event to all zoomable images
+        document.querySelectorAll('.zoomable').forEach(img => {
+            img.onclick = function() {
+                modal.style.display = 'flex';
+                modalImg.src = this.src;
+                modalImg.style.maxHeight = '90vh';
+                modalImg.style.objectFit = 'contain';
+            }
+        });
+
+        // Close modal when clicking the × button
+        closeBtn.onclick = function() {
+            modal.style.display = 'none';
+        }
+
+        // Close modal when clicking outside the image
+        modal.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Close modal when pressing ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

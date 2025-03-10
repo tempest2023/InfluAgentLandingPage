@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfluAgent - Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .progress-circle {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto;
+        }
+        
+        .progress-circle svg {
+            transform: rotate(-90deg);
+        }
+        
+        .progress-circle circle {
+            fill: none;
+            stroke-width: 6;
+        }
+        
+        .progress-bg {
+            stroke: var(--light-gray);
+        }
+        
+        .progress-value {
+            stroke: var(--primary-color);
+            stroke-dasharray: 251.2;
+            stroke-dashoffset: 125.6; /* 50% progress */
+        }
+        
+        .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 16px;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .activity-item {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--light-gray);
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .activity-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background-color: #F0F4FF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .activity-content {
+            flex: 1;
+        }
+        
+        .activity-time {
+            color: var(--medium-gray);
+            font-size: 13px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="iphone-container">
+        <!-- iOS Status Bar -->
+        <div class="status-bar">
+            <div class="time">9:41</div>
+            <div class="status-icons">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </div>
+        </div>
+
+        <!-- App Content -->
+        <div class="app-content">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h1 style="font-size: 26px; margin: 0;">Hi, Alex</h1>
+                <div style="width: 40px; height: 40px; border-radius: 50%; background-color: #ddd; overflow: hidden;">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3" alt="Profile" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+
+            <!-- Agent Status Card -->
+            <div class="card" style="background: linear-gradient(135deg, #5271FF 0%, #9747FF 100%); color: white; padding: 25px 20px;">
+                <h2 style="margin: 0 0 15px; font-size: 20px; font-weight: 600;">Agent Status</h2>
+                <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                    <div style="width: 50px; height: 50px; background-color: rgba(255, 255, 255, 0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+                        <i class="fas fa-robot" style="font-size: 24px;"></i>
+                    </div>
+                    <div>
+                        <h3 style="margin: 0; font-size: 18px; font-weight: 600;">Active</h3>
+                        <p style="margin: 5px 0 0; opacity: 0.8; font-size: 14px;">Planning content for next week</p>
+                    </div>
+                </div>
+                
+                <div style="display: flex; justify-content: space-around; text-align: center;">
+                    <div>
+                        <div class="progress-circle">
+                            <svg width="80" height="80" viewBox="0 0 100 100">
+                                <circle class="progress-bg" cx="50" cy="50" r="40"></circle>
+                                <circle class="progress-value" cx="50" cy="50" r="40"></circle>
+                            </svg>
+                            <div class="progress-text">85%</div>
+                        </div>
+                        <p style="margin: 10px 0 0; font-size: 14px; color: white;">Follower Goal</p>
+                    </div>
+                    
+                    <div>
+                        <div class="progress-circle">
+                            <svg width="80" height="80" viewBox="0 0 100 100">
+                                <circle class="progress-bg" cx="50" cy="50" r="40"></circle>
+                                <circle class="progress-value" cx="50" cy="50" r="40" style="stroke-dashoffset: 176.8;"></circle> <!-- 30% progress -->
+                            </svg>
+                            <div class="progress-text">30%</div>
+                        </div>
+                        <p style="margin: 10px 0 0; font-size: 14px; color: white;">Weekly Tasks</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div style="display: flex; justify-content: space-between; margin: 20px 0;">
+                <div class="card" style="flex: 1; margin-right: 10px; text-align: center; padding: 15px;">
+                    <h3 style="margin: 0 0 5px; font-size: 14px; color: var(--medium-gray);">New Followers</h3>
+                    <p style="margin: 0; font-size: 20px; font-weight: 700;">+32</p>
+                    <span style="font-size: 12px; color: var(--success-color);"><i class="fas fa-arrow-up"></i> 12%</span>
+                </div>
+                <div class="card" style="flex: 1; margin-left: 10px; text-align: center; padding: 15px;">
+                    <h3 style="margin: 0 0 5px; font-size: 14px; color: var(--medium-gray);">Engagement</h3>
+                    <p style="margin: 0; font-size: 20px; font-weight: 700;">4.2K</p>
+                    <span style="font-size: 12px; color: var(--success-color);"><i class="fas fa-arrow-up"></i> 8%</span>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <h2 class="section-header">Recent Activity</h2>
+            <div class="card" style="padding: 5px 20px;">
+                <div class="activity-item">
+                    <div class="activity-icon">
+                        <i class="fas fa-share-alt" style="color: var(--primary-color);"></i>
+                    </div>
+                    <div class="activity-content">
+                        <p style="margin: 0; font-weight: 500;">Posted a new tweet</p>
+                        <div class="activity-time">2 hours ago</div>
+                    </div>
+                </div>
+                
+                <div class="activity-item">
+                    <div class="activity-icon">
+                        <i class="fas fa-comment" style="color: var(--primary-color);"></i>
+                    </div>
+                    <div class="activity-content">
+                        <p style="margin: 0; font-weight: 500;">Replied to 5 comments</p>
+                        <div class="activity-time">4 hours ago</div>
+                    </div>
+                </div>
+                
+                <div class="activity-item">
+                    <div class="activity-icon">
+                        <i class="fas fa-chart-line" style="color: var(--primary-color);"></i>
+                    </div>
+                    <div class="activity-content">
+                        <p style="margin: 0; font-weight: 500;">Content performance analyzed</p>
+                        <div class="activity-time">Yesterday</div>
+                    </div>
+                </div>
+                
+                <div class="activity-item" style="border-bottom: none;">
+                    <div class="activity-icon">
+                        <i class="fas fa-calendar-check" style="color: var(--primary-color);"></i>
+                    </div>
+                    <div class="activity-content">
+                        <p style="margin: 0; font-weight: 500;">Scheduled 3 posts for next week</p>
+                        <div class="activity-time">Yesterday</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Upcoming Tasks -->
+            <h2 class="section-header">Upcoming Tasks</h2>
+            <div class="card" style="margin-bottom: 80px;">
+                <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                    <div style="flex: 1;">
+                        <h3 style="margin: 0; font-size: 16px;">Create engagement post</h3>
+                        <p style="margin: 5px 0 0; color: var(--medium-gray); font-size: 14px;">Tomorrow, 10:00 AM</p>
+                    </div>
+                    <button style="background-color: var(--light-gray); color: var(--dark-gray); border: none; padding: 8px 15px; border-radius: 8px; font-weight: 500;">Review</button>
+                </div>
+                
+                <div style="display: flex; align-items: center;">
+                    <div style="flex: 1;">
+                        <h3 style="margin: 0; font-size: 16px;">Respond to new comments</h3>
+                        <p style="margin: 5px 0 0; color: var(--medium-gray); font-size: 14px;">Tomorrow, 2:00 PM</p>
+                    </div>
+                    <button style="background-color: var(--light-gray); color: var(--dark-gray); border: none; padding: 8px 15px; border-radius: 8px; font-weight: 500;">Review</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Bar -->
+        <div class="tab-bar">
+            <div class="tab-item active">
+                <i class="fas fa-home tab-icon"></i>
+                <span class="tab-label">Home</span>
+            </div>
+            <div class="tab-item" onclick="window.location.href='goals.html'">
+                <i class="fas fa-bullseye tab-icon"></i>
+                <span class="tab-label">Goals</span>
+            </div>
+            <div class="tab-item" onclick="window.location.href='overview.html'">
+                <i class="fas fa-chart-simple tab-icon"></i>
+                <span class="tab-label">Overview</span>
+            </div>
+            <div class="tab-item" onclick="window.location.href='align.html'">
+                <i class="fas fa-sliders tab-icon"></i>
+                <span class="tab-label">Align</span>
+            </div>
+            <div class="tab-item" onclick="window.location.href='reflect.html'">
+                <i class="fas fa-lightbulb tab-icon"></i>
+                <span class="tab-label">Reflect</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfluAgent - Alignment</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .chat-bubble {
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            margin-bottom: 15px;
+            position: relative;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        
+        .agent-bubble {
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            border-top-left-radius: 4px;
+            margin-right: auto;
+        }
+        
+        .user-bubble {
+            background-color: var(--primary-color);
+            color: white;
+            border-top-right-radius: 4px;
+            margin-left: auto;
+        }
+        
+        .chat-input {
+            display: flex;
+            padding: 10px 15px;
+            background-color: white;
+            border-top: 1px solid var(--light-gray);
+            position: absolute;
+            bottom: 110px;
+            left: 0;
+            right: 0;
+            align-items: center;
+        }
+        
+        .chat-input input {
+            flex: 1;
+            border: none;
+            background-color: var(--light-gray);
+            padding: 12px 15px;
+            border-radius: 20px;
+            font-size: 15px;
+            outline: none;
+        }
+        
+        .chat-input button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px;
+        }
+        
+        .chips-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .suggestion-chip {
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+        
+        .suggestion-chip:hover {
+            background-color: #E0E4E9;
+        }
+        
+        .feedback-card {
+            background-color: #F0F7FF;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            margin-bottom: 100px;
+        }
+        
+        .voice-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #5271FF 0%, #9747FF 100%);
+            color: white;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="iphone-container">
+        <!-- iOS Status Bar -->
+        <div class="status-bar">
+            <div class="time">9:41</div>
+            <div class="status-icons">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </div>
+        </div>
+
+        <!-- App Content -->
+        <div class="app-content">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h1 style="font-size: 26px; margin: 0;">Talk to AI</h1>
+                <button style="background-color: var(--light-gray); width: 40px; height: 40px; border-radius: 50%; border: none; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-ellipsis-vertical" style="color: var(--dark-gray);"></i>
+                </button>
+            </div>
+
+            <!-- Voice Input Option -->
+            <div style="text-align: center; margin-bottom: 15px;">
+                <p style="margin: 0 0 10px; color: var(--medium-gray);">Tap and hold to speak to your agent</p>
+                <button class="voice-button">
+                    <i class="fas fa-microphone" style="font-size: 24px;"></i>
+                </button>
+            </div>
+
+            <!-- Suggestion Chips -->
+            <h2 style="font-size: 16px; margin: 20px 0 10px;">Quick Alignment</h2>
+            <div class="chips-container">
+                <button class="suggestion-chip">Post more frequently</button>
+                <button class="suggestion-chip">Focus on video content</button>
+                <button class="suggestion-chip">More behind-the-scenes</button>
+                <button class="suggestion-chip">Be more conversational</button>
+                <button class="suggestion-chip">Post at different times</button>
+            </div>
+
+            <!-- Chat Interface -->
+            <div style="margin-bottom: 40px;">
+                <div class="chat-bubble agent-bubble">
+                    Hello! How would you like to align with your social media strategy today?
+                </div>
+                
+                <div class="chat-bubble user-bubble">
+                    I'd like to post more behind-the-scenes content
+                </div>
+                
+                <div class="chat-bubble agent-bubble">
+                    Great choice! Behind-the-scenes content typically gets 30% more engagement from your audience. How often would you like to share this type of content?
+                </div>
+                
+                <div class="chat-bubble user-bubble">
+                    Maybe once or twice a week
+                </div>
+                
+                <div class="chat-bubble agent-bubble">
+                    Perfect! I'll align with your content strategy to include behind-the-scenes posts twice a week. Would you prefer these on specific days?
+                </div>
+            </div>
+
+            <!-- Feedback Card -->
+            <div class="feedback-card">
+                <div style="display: flex; align-items: flex-start;">
+                    <i class="fas fa-info-circle" style="color: var(--primary-color); margin-right: 10px; margin-top: 3px;"></i>
+                    <div>
+                        <h3 style="margin: 0 0 5px; font-size: 16px;">Agent has been updated</h3>
+                        <p style="margin: 0; font-size: 14px; color: var(--dark-gray);">Your preferences for more behind-the-scenes content have been saved. Your next scheduled posts will reflect this change.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Input -->
+            <div class="chat-input">
+                <input type="text" placeholder="Type your instructions...">
+                <button>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Tab Bar -->
+        <div class="tab-bar">
+            <div class="tab-item" onclick="window.location.href='home.html'">
+                <i class="fas fa-home tab-icon"></i>
+                <span class="tab-label">Home</span>
+            </div>
+            <div class="tab-item" onclick="window.location.href='goals.html'">
+                <i class="fas fa-bullseye tab-icon"></i>
+                <span class="tab-label">Goals</span>
+            </div>
+            <div class="tab-item" onclick="window.location.href='overview.html'">
+                <i class="fas fa-chart-simple tab-icon"></i>
+                <span class="tab-label">Overview</span>
+            </div>
+            <div class="tab-item active">
+                <i class="fas fa-sliders tab-icon"></i>
+                <span class="tab-label">Align</span>
+            </div>
+            <div class="tab-item" onclick="window.location.href='reflect.html'">
+                <i class="fas fa-lightbulb tab-icon"></i>
+                <span class="tab-label">Reflect</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

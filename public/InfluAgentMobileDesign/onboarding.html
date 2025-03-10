@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfluAgent - Onboarding</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="iphone-container">
+        <!-- iOS Status Bar -->
+        <div class="status-bar">
+            <div class="time">9:41</div>
+            <div class="status-icons">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </div>
+        </div>
+
+        <!-- App Content -->
+        <div class="app-content">
+            <!-- Onboarding Page 1 - Welcome -->
+            <div class="onboarding-page" id="page-1">
+                <div style="text-align: center; margin: 40px 0;">
+                    <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3" alt="Social media illustration" style="width: 200px; height: 200px; object-fit: cover; border-radius: 20px;">
+                    <h1 style="font-size: 28px; margin-top: 30px; font-weight: 700;">Welcome to InfluAgent</h1>
+                    <p style="color: var(--dark-gray); margin: 15px 0 30px;">Your AI assistant to grow your social media presence effortlessly</p>
+                </div>
+
+                <div class="feature-list">
+                    <div class="feature-item" style="display: flex; align-items: center; margin-bottom: 20px;">
+                        <div style="background-color: #F0F4FF; width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+                            <i class="fas fa-calendar-check" style="color: var(--primary-color); font-size: 22px;"></i>
+                        </div>
+                        <div>
+                            <h3 style="margin: 0; font-size: 17px;">Smart Scheduling</h3>
+                            <p style="margin: 5px 0 0; color: var(--dark-gray); font-size: 14px;">Schedule posts at optimal times</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item" style="display: flex; align-items: center; margin-bottom: 20px;">
+                        <div style="background-color: #F0F4FF; width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+                            <i class="fas fa-users" style="color: var(--primary-color); font-size: 22px;"></i>
+                        </div>
+                        <div>
+                            <h3 style="margin: 0; font-size: 17px;">Grow Your Followers</h3>
+                            <p style="margin: 5px 0 0; color: var(--dark-gray); font-size: 14px;">Personalized strategies for audience growth</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item" style="display: flex; align-items: center; margin-bottom: 20px;">
+                        <div style="background-color: #F0F4FF; width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+                            <i class="fas fa-robot" style="color: var(--primary-color); font-size: 22px;"></i>
+                        </div>
+                        <div>
+                            <h3 style="margin: 0; font-size: 17px;">AI-Powered Insights</h3>
+                            <p style="margin: 5px 0 0; color: var(--dark-gray); font-size: 14px;">Smart analytics to optimize performance</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="button-primary" onclick="showPage(2)">Get Started</button>
+                <p style="text-align: center; font-size: 14px; color: var(--medium-gray);">Already have an account? <a href="#" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">Log in</a></p>
+            </div>
+
+            <!-- Onboarding Page 2 - Connect Accounts -->
+            <div class="onboarding-page" id="page-2" style="display: none;">
+                <h2 style="font-size: 24px; margin-bottom: 10px;">Connect Your Accounts</h2>
+                <p style="color: var(--dark-gray); margin-bottom: 30px;">Link your social media profiles to enable your AI agent</p>
+
+                <div class="card" style="display: flex; align-items: center; margin-bottom: 15px;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg" alt="Twitter" style="width: 30px; height: 30px; margin-right: 15px;">
+                    <div style="flex: 1;">
+                        <h3 style="margin: 0; font-size: 16px;">Twitter</h3>
+                        <p style="margin: 3px 0 0; color: var(--medium-gray); font-size: 14px;">Connect your Twitter account</p>
+                    </div>
+                    <button style="background-color: var(--primary-color); color: white; border: none; padding: 8px 15px; border-radius: 8px; font-weight: 500;">Connect</button>
+                </div>
+
+                <div class="card" style="display: flex; align-items: center; margin-bottom: 15px;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram" style="width: 30px; height: 30px; margin-right: 15px;">
+                    <div style="flex: 1;">
+                        <h3 style="margin: 0; font-size: 16px;">Instagram</h3>
+                        <p style="margin: 3px 0 0; color: var(--medium-gray); font-size: 14px;">Connect your Instagram account</p>
+                    </div>
+                    <button style="background-color: var(--primary-color); color: white; border: none; padding: 8px 15px; border-radius: 8px; font-weight: 500;">Connect</button>
+                </div>
+
+                <div class="card" style="display: flex; align-items: center; margin-bottom: 15px;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/TikTok_Logo.svg" alt="TikTok" style="width: 30px; height: 30px; margin-right: 15px;">
+                    <div style="flex: 1;">
+                        <h3 style="margin: 0; font-size: 16px;">TikTok</h3>
+                        <p style="margin: 3px 0 0; color: var(--medium-gray); font-size: 14px;">Connect your TikTok account</p>
+                    </div>
+                    <button style="background-color: var(--primary-color); color: white; border: none; padding: 8px 15px; border-radius: 8px; font-weight: 500;">Connect</button>
+                </div>
+
+                <button class="button-primary" onclick="showPage(3)">Continue</button>
+                <button class="button-secondary" onclick="showPage(1)">Back</button>
+            </div>
+
+            <!-- Onboarding Page 3 - Set Goals -->
+            <div class="onboarding-page" id="page-3" style="display: none;">
+                <h2 style="font-size: 24px; margin-bottom: 10px;">Set Your Goals</h2>
+                <p style="color: var(--dark-gray); margin-bottom: 30px;">What would you like to achieve with your social media?</p>
+
+                <div class="card" style="margin-bottom: 15px; position: relative; border: 2px solid var(--primary-color);">
+                    <div style="position: absolute; top: -10px; right: -10px; background-color: var(--primary-color); color: white; border-radius: 50%; width: 25px; height: 25px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h3 style="margin: 0 0 10px; font-size: 18px; color: var(--primary-color);">Increase Followers</h3>
+                    <p style="margin: 0; color: var(--dark-gray); font-size: 14px;">Grow your audience and expand your reach</p>
+                </div>
+
+                <div class="card" style="margin-bottom: 15px;">
+                    <h3 style="margin: 0 0 10px; font-size: 18px;">Boost Engagement</h3>
+                    <p style="margin: 0; color: var(--dark-gray); font-size: 14px;">Increase likes, comments, and shares on your posts</p>
+                </div>
+
+                <div class="card" style="margin-bottom: 15px;">
+                    <h3 style="margin: 0 0 10px; font-size: 18px;">Content Consistency</h3>
+                    <p style="margin: 0; color: var(--dark-gray); font-size: 14px;">Maintain a regular posting schedule</p>
+                </div>
+
+                <h3 style="margin: 25px 0 15px;">Growth Pace</h3>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <div style="text-align: center; flex: 1;">
+                        <div style="height: 5px; background-color: var(--light-gray); border-radius: 5px; margin-bottom: 10px; position: relative;">
+                            <div style="position: absolute; height: 5px; width: 33%; background-color: var(--primary-color); border-radius: 5px;"></div>
+                        </div>
+                        <span style="font-size: 14px; color: var(--primary-color); font-weight: 600;">Steady</span>
+                    </div>
+                    <div style="text-align: center; flex: 1; margin: 0 10px;">
+                        <div style="height: 5px; background-color: var(--light-gray); border-radius: 5px; margin-bottom: 10px;"></div>
+                        <span style="font-size: 14px; color: var(--medium-gray);">Moderate</span>
+                    </div>
+                    <div style="text-align: center; flex: 1;">
+                        <div style="height: 5px; background-color: var(--light-gray); border-radius: 5px; margin-bottom: 10px;"></div>
+                        <span style="font-size: 14px; color: var(--medium-gray);">Aggressive</span>
+                    </div>
+                </div>
+
+                <button class="button-primary" onclick="showPage(4)">Finish Setup</button>
+                <button class="button-secondary" onclick="showPage(2)">Back</button>
+            </div>
+
+            <!-- Onboarding Page 4 - Completed -->
+            <div class="onboarding-page" id="page-4" style="display: none; text-align: center;">
+                <div style="margin: 50px 0;">
+                    <div style="width: 100px; height: 100px; background-color: #F0F7FF; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 30px;">
+                        <i class="fas fa-check" style="color: var(--primary-color); font-size: 40px;"></i>
+                    </div>
+                    <h2 style="font-size: 24px; margin-bottom: 15px;">You're All Set!</h2>
+                    <p style="color: var(--dark-gray); margin-bottom: 30px;">Your AI agent is ready to help you grow your social media presence.</p>
+                </div>
+
+                <button class="button-primary" onclick="window.location.href='home.html'">Go to Dashboard</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageNumber) {
+            // Hide all pages
+            document.querySelectorAll('.onboarding-page').forEach(page => {
+                page.style.display = 'none';
+            });
+            
+            // Show selected page
+            document.getElementById('page-' + pageNumber).style.display = 'block';
+        }
+    </script>
+</body>
+</html> 

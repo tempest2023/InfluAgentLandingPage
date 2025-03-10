@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfluAgent - Reflect</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .reflection-card {
+            margin-bottom: 15px;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        
+        .reflection-header {
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .reflection-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        
+        .reflection-content {
+            padding: 15px 20px;
+        }
+        
+        .success-bg {
+            background-color: #E5F7EE;
+        }
+        
+        .success-color {
+            color: #10B981;
+        }
+        
+        .warning-bg {
+            background-color: #FEF3E6;
+        }
+        
+        .warning-color {
+            color: #F59E0B;
+        }
+        
+        .info-bg {
+            background-color: #EDF5FF;
+        }
+        
+        .info-color {
+            color: #5271FF;
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-right: 5px;
+        }
+        
+        .post-preview {
+            display: flex;
+            margin-top: 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .post-image {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+        }
+        
+        .post-info {
+            padding: 10px 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="iphone-container">
+        <!-- iOS Status Bar -->
+        <div class="status-bar">
+            <div class="time">9:41</div>
+            <div class="status-icons">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </div>
+        </div>
+
+        <!-- App Content -->
+        <div class="app-content">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h1 style="font-size: 26px; margin: 0;">Insights</h1>
+                <div style="display: flex; gap: 10px;">
+                    <button style="background-color: var(--light-gray); width: 40px; height: 40px; border-radius: 50%; border: none; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-filter" style="color: var(--dark-gray);"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Summary Card -->
+            <div class="card" style="margin-bottom: 25px; text-align: center; padding: 20px;">
+                <h2 style="margin: 0 0 15px; font-size: 20px;">Weekly Summary</h2>
+                <div style="width: 100px; height: 100px; border-radius: 50%; background: conic-gradient(#10B981 0% 70%, #F59E0B 70% 85%, #EF4444 85% 100%); margin: 0 auto 20px; position: relative; display: flex; align-items: center; justify-content: center;">
+                    <div style="width: 70px; height: 70px; border-radius: 50%; background-color: white; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                        <span style="font-size: 24px; font-weight: 700; line-height: 1;">70%</span>
+                        <span style="font-size: 12px; color: var(--medium-gray);">Success</span>
+                    </div>
+                </div>
+                <p style="margin: 0; color: var(--dark-gray);">Your AI agent has successfully completed 14 out of 20 tasks this week.</p>
+            </div>
+
+            <!-- Reflection Cards -->
+            <h2 class="section-header">Recent Reflections</h2>
+            
+            <!-- Success Card -->
+            <div class="card reflection-card">
+                <div class="reflection-header">
+                    <div class="reflection-icon success-bg">
+                        <i class="fas fa-check success-color"></i>
+                    </div>
+                    <div>
+                        <h3 style="margin: 0; font-size: 16px;">Strategy Success</h3>
+                        <p style="margin: 3px 0 0; color: var(--medium-gray); font-size: 13px;">Yesterday</p>
+                    </div>
+                    <span class="tag success-bg success-color" style="margin-left: auto;">Content</span>
+                </div>
+                <div class="reflection-content">
+                    <p style="margin: 0 0 15px;">Behind-the-scenes content is performing exceptionally well. Your audience engagement increased by 45% on these posts.</p>
+                    <div class="post-preview">
+                        <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3" alt="Post preview" class="post-image">
+                        <div class="post-info">
+                            <h4 style="margin: 0 0 5px; font-size: 14px;">Studio Setup Tour</h4>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <span style="font-size: 12px; color: var(--medium-gray);"><i class="fas fa-heart"></i> 486</span>
+                                <span style="font-size: 12px; color: var(--medium-gray);"><i class="fas fa-comment"></i> 52</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Warning Card -->
+            <div class="card reflection-card">
+                <div class="reflection-header">
+                    <div class="reflection-icon warning-bg">
+                        <i class="fas fa-exclamation-triangle warning-color"></i>
+                    </div>
+                    <div>
+                        <h3 style="margin: 0; font-size: 16px;">Posting Time Insight</h3>
+                        <p style="margin: 3px 0 0; color: var(--medium-gray); font-size: 13px;">2 days ago</p>
+                    </div>
+                    <span class="tag warning-bg warning-color" style="margin-left: auto;">Timing</span>
+                </div>
+                <div class="reflection-content">
+                    <p style="margin: 0;">Morning posts (8-10am) are getting 25% less engagement than evening posts (7-9pm). Your agent has aligned with the posting schedule accordingly.</p>
+                </div>
+            </div>
+            
+            <!-- Info Card -->
+            <div class="card reflection-card">
+                <div class="reflection-header">
+                    <div class="reflection-icon info-bg">
+                        <i class="fas fa-sync-alt info-color"></i>
+                    </div>
+                    <div>
+                        <h3 style="margin: 0; font-size: 16px;">Retry Success</h3>
+                        <p style="margin: 3px 0 0; color: var(--medium-gray); font-size: 13px;">3 days ago</p>
+                    </div>
+                    <span class="tag info-bg info-color" style="margin-left: auto;">System</span>
+                </div>
+                <div class="reflection-content">
+                    <p style="margin: 0;">The Twitter API experienced temporary issues. Your agent successfully retried and completed scheduled tasks after the service was restored.</p>
+                </div>
+            </div>
+            
+            <!-- More Data Card -->
+            <div class="card reflection-card">
+                <div class="reflection-header">
+                    <div class="reflection-icon success-bg">
+                        <i class="fas fa-chart-line success-color"></i>
+                    </div>
+                    <div>
+                        <h3 style="margin: 0; font-size: 16px;">Hashtag Performance</h3>
+                        <p style="margin: 3px 0 0; color: var(--medium-gray); font-size: 13px;">4 days ago</p>
+                    </div>
+                    <span class="tag success-bg success-color" style="margin-left: auto;">Analytics</span>
+                </div>
+                <div class="reflection-content">
+                    <p style="margin: 0;">Industry-specific hashtags are bringing in 35% more profile visits. Your agent has incorporated these into your hashtag strategy.</p>
+                </div>
+            </div>
+
+            <!-- Action Button -->
+            <button class="button-primary" style="margin: 30px 0 80px;">Apply All Insights</button>
+        </div>
+
+        <!-- Tab Bar -->
+        <div class="tab-bar">
+            <div class="tab-item" onclick="window.location.href='home.html'">
+                <i class="fas fa-home tab-icon"></i>
+                <span class="tab-label">Home</span>
+            </div>
+            <div class="tab-item" onclick="window.location.href='goals.html'">
+                <i class="fas fa-bullseye tab-icon"></i>
+                <span class="tab-label">Goals</span>
+            </div>
+            <div class="tab-item" onclick="window.location.href='overview.html'">
+                <i class="fas fa-chart-simple tab-icon"></i>
+                <span class="tab-label">Overview</span>
+            </div>
+            <div class="tab-item" onclick="window.location.href='align.html'">
+                <i class="fas fa-sliders tab-icon"></i>
+                <span class="tab-label">Align</span>
+            </div>
+            <div class="tab-item active">
+                <i class="fas fa-lightbulb tab-icon"></i>
+                <span class="tab-label">Reflect</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

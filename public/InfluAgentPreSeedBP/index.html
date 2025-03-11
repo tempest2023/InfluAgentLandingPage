@@ -72,6 +72,62 @@
     </style>
 </head>
 <body class="bg-gray-50">
+    <!-- Top Notification -->
+    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-1.5 sm:py-2 px-2 sm:px-4">
+        <div class="container mx-auto">
+            <div class="flex items-center justify-center space-x-1.5 sm:space-x-2 text-xs sm:text-sm md:text-base">
+                <i class="fas fa-lock text-sm sm:text-base"></i>
+                <span class="font-semibold truncate">Confidential Investment Presentation</span>
+                <button 
+                    class="ml-1 sm:ml-2 text-white hover:text-indigo-200 focus:outline-none" 
+                    onclick="document.getElementById('confidentialityModal').classList.remove('hidden')"
+                >
+                    <i class="fas fa-info-circle text-sm sm:text-base"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confidentiality Modal -->
+    <div id="confidentialityModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center px-4">
+        <div class="bg-white rounded-lg max-w-2xl w-full p-6 relative">
+            <button 
+                class="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+                onclick="document.getElementById('confidentialityModal').classList.add('hidden')"
+            >
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="text-center mb-6">
+                <i class="fas fa-shield-alt text-4xl text-indigo-600 mb-4"></i>
+                <h3 class="text-xl font-bold text-gray-900">Confidentiality Notice</h3>
+            </div>
+            <div class="space-y-4 text-gray-600">
+                <p class="border-l-4 border-indigo-500 pl-4">
+                    This document contains sensitive information intended solely for the recipient's review and feedback.
+                </p>
+                <p>The contents of this page are:</p>
+                <ul class="list-disc list-inside space-y-2 ml-4">
+                    <li>Strictly confidential</li>
+                    <li>Not to be reproduced or shared</li>
+                    <li>Protected by non-disclosure agreement</li>
+                    <li>For authorized viewing only</li>
+                </ul>
+                <p class="text-sm bg-gray-50 p-4 rounded-lg">
+                    By continuing to view this document, you agree to maintain its confidentiality and take reasonable precautions 
+                    to prevent unauthorized access, copying, or disclosure of the information contained herein.
+                </p>
+            </div>
+            <div class="mt-6 text-center">
+                <button 
+                    class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition-colors"
+                    onclick="document.getElementById('confidentialityModal').classList.add('hidden')"
+                >
+                    I Understand
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Header -->
     <header class="w-full bg-white shadow-sm">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -83,6 +139,9 @@
                 <span class="text-indigo-600 font-semibold">Pre-Seed Business Plan</span>
             </div>
             <div class="flex items-center space-x-4">
+                <a href="../InfluAgentMobileDesign/index.html" target="_blank" class="px-4 py-2 text-indigo-600 hover:text-indigo-800 font-medium transition-colors duration-200">
+                    <i class="fas fa-mobile-alt mr-2"></i>App Design
+                </a>
                 <button onclick="window.location.href='/'" class="px-4 py-2 text-indigo-600 hover:text-indigo-800 font-medium transition-colors duration-200">
                     <i class="fas fa-arrow-left mr-2"></i>Back to Landing Page
                 </button>
@@ -165,7 +224,7 @@
     <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
             <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Our Solution</h2>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
                 <div class="space-y-6">
                     <div class="flex items-start space-x-4">
                         <div class="text-3xl text-indigo-600">
@@ -197,6 +256,92 @@
                 </div>
                 <div>
                     <img src="./Dashboard.png" alt="InfluAgent Dashboard" class="rounded-lg shadow-xl zoomable">
+                </div>
+            </div>
+
+            <!-- Mobile App Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="relative flex justify-center items-center">
+                    <!-- Carousel container -->
+                    <div class="carousel-container overflow-hidden rounded-lg shadow-xl relative mb-12" style="width: 280px; height: 580px; background: #f5f5f5;">
+                        <div class="carousel-track flex transition-transform duration-500 h-full">
+                            <div class="carousel-slide w-full flex-shrink-0 flex items-center justify-center">
+                                <img src="../InfluAgentMobileDesign/MobileDesign/Login.png" alt="InfluAgent Mobile Login" class="w-full h-full object-contain">
+                            </div>
+                            <div class="carousel-slide w-full flex-shrink-0 flex items-center justify-center">
+                                <img src="../InfluAgentMobileDesign/MobileDesign/Home.png" alt="InfluAgent Mobile Home" class="w-full h-full object-contain">
+                            </div>
+                            <div class="carousel-slide w-full flex-shrink-0 flex items-center justify-center">
+                                <img src="../InfluAgentMobileDesign/MobileDesign/Goals.png" alt="InfluAgent Mobile Goals" class="w-full h-full object-contain">
+                            </div>
+                            <div class="carousel-slide w-full flex-shrink-0 flex items-center justify-center">
+                                <img src="../InfluAgentMobileDesign/MobileDesign/Overview.png" alt="InfluAgent Mobile Overview" class="w-full h-full object-contain">
+                            </div>
+                            <div class="carousel-slide w-full flex-shrink-0 flex items-center justify-center">
+                                <img src="../InfluAgentMobileDesign/MobileDesign/Align.png" alt="InfluAgent Mobile Align" class="w-full h-full object-contain">
+                            </div>
+                            <div class="carousel-slide w-full flex-shrink-0 flex items-center justify-center">
+                                <img src="../InfluAgentMobileDesign/MobileDesign/Reflect.png" alt="InfluAgent Mobile Reflect" class="w-full h-full object-contain">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Dots indicator -->
+                    <div class="absolute bottom-0 left-0 right-0 flex justify-center space-x-3 pb-2">
+                        <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-indigo-600 transition-all"></button>
+                        <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-indigo-600 transition-all"></button>
+                        <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-indigo-600 transition-all"></button>
+                        <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-indigo-600 transition-all"></button>
+                        <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-indigo-600 transition-all"></button>
+                        <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-indigo-600 transition-all"></button>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-bold mb-4 gradient-text">Mobile App for On-the-Go Control</h3>
+                        <p class="text-gray-600 text-lg mb-6">
+                            Stay connected with your AI agent anytime, anywhere. Our mobile app puts the power of InfluAgent in your pocket.
+                            <span>Check out <a href="../InfluAgentMobileDesign/index.html" class="text-indigo-600 hover:text-indigo-800 inline-flex items-center" target="_blank">the detail prototype design here <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a></span>
+                        </p>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="text-3xl text-indigo-600">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Real-time Monitoring</h4>
+                                <p class="text-gray-600">Track your agent's activities, view posts, comments, and trending data in real-time.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="text-3xl text-indigo-600">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Agent Communication</h4>
+                                <p class="text-gray-600">Chat with your AI agent to adjust strategies, fine-tune tasks, and provide feedback.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="text-3xl text-indigo-600">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Smart Notifications</h4>
+                                <p class="text-gray-600">Receive instant alerts for important actions, approval requests, and performance milestones.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="text-3xl text-indigo-600">
+                                <i class="fas fa-key"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Quick Authorization</h4>
+                                <p class="text-gray-600">Seamlessly manage permissions and authenticate social media accounts on the go.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -465,12 +610,12 @@
 
     <!-- Fund Allocation Section -->
     <section class="py-20 bg-gray-50">
-      <div class="w-full">
+      <div class="w-full overflow-x-hidden">
           <iframe 
               id="fundAllocationFrame"
               src="./fund_allocation.html" 
               class="w-full"
-              style="border: none; width: 100%; overflow: hidden;height: 2800px;"
+              style="border: none; width: 100%; overflow: hidden; height: 100px; transition: height 0.3s ease; min-height: 2000px;"
               scrolling="no"
               title="Fund Allocation Details"
           ></iframe>
@@ -491,6 +636,11 @@
     </footer>
 
     <script>
+        // Show confidentiality modal on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('confidentialityModal').classList.remove('hidden');
+        });
+
         // Modal functionality
         const modal = document.getElementById('imageModal');
         const modalImg = document.getElementById('modalImage');
@@ -522,6 +672,104 @@
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 modal.style.display = 'none';
+            }
+        });
+
+        // Listen for messages from the iframe
+        window.addEventListener('message', function(event) {
+          if (event.data.type === 'resize') {
+            const iframe = document.getElementById('fundAllocationFrame');
+            if (iframe) {
+              // Validate and set a reasonable height
+              const newHeight = Math.min(Math.max(event.data.height + 40, 2000), 6000);
+              // Only update if height has changed significantly (more than 10px)
+              const currentHeight = parseInt(iframe.style.height);
+              if (Math.abs(currentHeight - newHeight) > 10) {
+                iframe.style.height = newHeight + 'px';
+              }
+            }
+          }
+        });
+
+        // Carousel functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const track = document.querySelector('.carousel-track');
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.carousel-dot');
+            
+            let currentIndex = 0;
+            const slideCount = slides.length;
+            
+            // Initialize first dot as active
+            dots[0].classList.add('bg-indigo-600');
+            
+            function updateCarousel() {
+                // Update track position
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // Update dots
+                dots.forEach((dot, index) => {
+                    if (index === currentIndex) {
+                        dot.classList.remove('bg-gray-300');
+                        dot.classList.add('bg-indigo-600');
+                    } else {
+                        dot.classList.remove('bg-indigo-600');
+                        dot.classList.add('bg-gray-300');
+                    }
+                });
+            }
+            
+            // Dot navigation
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateCarousel();
+                });
+            });
+            
+            // Auto advance slides
+            let autoAdvance = setInterval(nextSlide, 5000);
+            
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % slideCount;
+                updateCarousel();
+            }
+            
+            // Pause auto-advance on hover
+            const carouselContainer = document.querySelector('.carousel-container');
+            carouselContainer.addEventListener('mouseenter', () => {
+                clearInterval(autoAdvance);
+            });
+            
+            carouselContainer.addEventListener('mouseleave', () => {
+                autoAdvance = setInterval(nextSlide, 5000);
+            });
+            
+            // Add touch support
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            carouselContainer.addEventListener('touchstart', (e) => {
+                touchStartX = e.touches[0].clientX;
+            });
+            
+            carouselContainer.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].clientX;
+                handleSwipe();
+            });
+            
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                const diff = touchStartX - touchEndX;
+                
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        currentIndex = (currentIndex + 1) % slideCount;
+                    } else {
+                        currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+                    }
+                    updateCarousel();
+                }
             }
         });
     </script>

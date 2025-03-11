@@ -56,9 +56,7 @@ export default function Header() {
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
         </div>
-
-        {/* Get Started Button (Desktop) */}
-        <Button variant="outline" className="hidden md:inline-flex">Get Started</Button>
+        {/* <Button variant="outline" className="hidden md:inline-flex">Get Started</Button> */}
       </div>
 
       {/* Mobile Navigation */}
@@ -82,7 +80,7 @@ export default function Header() {
           <Link href="/InfluAgentPreSeedBP/index.html" className="block text-indigo-600 hover:text-indigo-800 font-medium py-2">
             Pre-Seed BP
           </Link>
-          <Button variant="outline" className="w-full mt-4">Get Started</Button>
+          {/* <Button variant="outline" className="w-full mt-4">Get Started</Button> */}
         </div>
       </div>
     </header>

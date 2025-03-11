@@ -1,5 +1,8 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { ThemeProvider } from "@/components/theme-provider"
+import { WaitlistProvider } from "@/contexts/waitlist-context"
+import WaitlistModal from "@/components/waitlist-modal"
 
 export const metadata: Metadata = {
   title: 'InfluAgent',
@@ -26,12 +29,24 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/camera.webp" type="image/webp" />
         <link rel="apple-touch-icon" href="/camera.webp" type="image/webp" />
       </head>
-      <body>{children}</body>
+      <body>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <WaitlistProvider>
+            {children}
+            <WaitlistModal />
+          </WaitlistProvider>
+        </ThemeProvider>
+      </body>
     </html>
   )
 }

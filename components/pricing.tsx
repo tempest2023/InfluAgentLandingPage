@@ -1,5 +1,7 @@
+'use client'
 import { Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useWaitlist } from "@/contexts/waitlist-context"
 
 const plans = [
   {
@@ -51,6 +53,8 @@ const plans = [
 ]
 
 export default function Pricing() {
+  const { openWaitlist } = useWaitlist()
+
   return (
     <section id="pricing" className="py-12 md:py-20 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -87,7 +91,7 @@ export default function Pricing() {
                     ))}
                   </ul>
                 </div>
-                <div className="p-4 flex justify-center">
+                <div className="p-12 flex justify-center">
                   <Button 
                     className={`px-8 transition-colors duration-300 ${
                       plan.highlighted 
@@ -95,6 +99,7 @@ export default function Pricing() {
                         : "border-gray-200 hover:bg-gray-100 group-hover:bg-white group-hover:text-indigo-600 group-hover:border-transparent"
                     }`}
                     variant={plan.highlighted ? "default" : "outline"}
+                    onClick={openWaitlist}
                   >
                     {plan.cta}
                   </Button>

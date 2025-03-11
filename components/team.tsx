@@ -1,14 +1,15 @@
 import Image from "next/image"
-import { Linkedin, Globe } from "lucide-react"
+import { Linkedin, Globe, Mail } from "lucide-react"
 
 const teamMembers = [
   {
     name: "Tempest",
     role: "Co-Founder & CEO",
     bio: "A staunch advocate of AGI. 5+ years of experience in the software engineering, several years of experience in AI/Web3 entrepreneurship, PhD Candidate @UCR, published papers at the 2024 RTSS(real-time systems symposium).",
-    experience: ["Software Engineer @TikTok", "FullStack Engineer @Alipay"],
+    experience: ["Software Engineer @TikTok", "Ex-Frontend Engineer @Alipay"],
     linkedin: "https://www.linkedin.com/in/taoren-pitt/",
     website: "https://tempest.fun/",
+    email: "tempest.ren@tiktok.com",
     image: "https://media.licdn.com/dms/image/v2/C4E03AQGPa-fE0hAM9w/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1635805570581?e=1747267200&v=beta&t=VPX5O5VMDzlto6QV69Xi30-eASpzxx4Nzz0jtPtSKFA"
   },
   // {
@@ -46,7 +47,8 @@ const teamMembers = [
     role: "",
     bio: "We are looking for a co-founder who is passionate about AGI and has a strong background in Business & Finance, or UI/UX design & Product Design, or Software Engineering & FullStack Development.",
     experience: ["Business & Financial Expert", "UI/UX Design & Product Design Expert", "FullStack AI Expert"],
-    website: "mailto:tar118@pitt.edu"
+    website: "mailto:tempest.ren@tiktok.com",
+    email: "tempest.ren@tiktok.com"
   }
 ]
 
@@ -96,6 +98,14 @@ export default function Team() {
                     className="text-blue-600 hover:text-blue-800"
                   >
                     <Globe className="w-5 h-5" />
+                  </a>}
+                  {member.email && <a
+                    href={`mailto:${member.email}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-800"
+                  >
+                    <Mail className="w-5 h-5" />
                   </a>}
                 </div>
               </div>

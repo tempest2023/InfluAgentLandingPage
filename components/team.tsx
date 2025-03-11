@@ -5,7 +5,7 @@ const teamMembers = [
   {
     name: "Tempest",
     role: "Co-Founder & CEO",
-    bio: "Software Engineer @TikTok, FullStack Engineer @Alipay. A staunch advocate of AGI (Artificial General Intelligence).",
+    bio: "A staunch advocate of AGI. 5+ years of experience in the software engineering, several years of experience in AI/Web3 entrepreneurship, PhD Candidate @UCR, published papers at the 2024 RTSS(real-time systems symposium).",
     experience: ["Software Engineer @TikTok", "FullStack Engineer @Alipay"],
     linkedin: "https://www.linkedin.com/in/taoren-pitt/",
     website: "https://tempest.fun/",
@@ -35,14 +35,19 @@ const teamMembers = [
   //   linkedin: "https://www.linkedin.com/in/lyra-product/",
   //   website: "https://lyrapm.com/",
   // },
-  // {
-  //   name: "Atlas",
-  //   role: "Head of Business & Strategy",
-  //   bio: "Seasoned entrepreneur and former VC investor with deep experience in AI and Web3 startups. Previously led growth initiatives at Tesla, scaling innovative projects to global markets. Expert in fundraising, partnerships, and go-to-market strategy.",
-  //   experience: ["Growth & Strategy Lead @Tesla", "Investor @Sequoia Capital"],
-  //   linkedin: "https://www.linkedin.com/in/atlas-strategy/",
-  //   website: "https://atlasgrowth.com/",
-  // },
+  {
+    name: "Atlas",
+    role: "Head of Business & Strategy",
+    bio: "Seasoned entrepreneur and former VC investor with deep experience in AI and Web3 startups. Previously led growth initiatives at Tesla, scaling innovative projects to global markets. Expert in fundraising, partnerships, and go-to-market strategy.",
+    experience: ["Growth & Strategy Lead @Tesla", "Investor @Sequoia Capital"],
+  },
+  {
+    name: "Join us as a Co-Founder",
+    role: "",
+    bio: "We are looking for a co-founder who is passionate about AGI and has a strong background in Business & Finance, or UI/UX design & Product Design, or Software Engineering & FullStack Development.",
+    experience: ["Business & Financial Expert", "UI/UX Design & Product Design Expert", "FullStack AI Expert"],
+    website: "mailto:tar118@pitt.edu"
+  }
 ]
 
 export default function Team() {
@@ -50,9 +55,9 @@ export default function Team() {
     <section id="team" className="py-12 md:py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">Meet Our Team</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="flex flex-wrap justify-center gap-8 max-w-[90rem] mx-auto">
           {teamMembers.map((member, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-1rem)] max-w-md flex-shrink-0">
               <div className="p-6">
                 <div className="flex items-center justify-between mb-4">
                   <div>
@@ -67,7 +72,7 @@ export default function Team() {
                     className="rounded-full"
                   />
                 </div>
-                <p className="text-gray-600 mb-4 line-clamp-3">{member.bio}</p>
+                <p className="text-gray-600 mb-4 line-clamp-4">{member.bio}</p>
                 <div className="mb-4">
                   {member.experience.map((exp, idx) => (
                     <p key={idx} className="text-sm text-gray-500">
@@ -76,22 +81,22 @@ export default function Team() {
                   ))}
                 </div>
                 <div className="flex space-x-4">
-                  <a
+                {member.linkedin && <a
                     href={member.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-600 hover:text-blue-800"
                   >
                     <Linkedin className="w-5 h-5" />
-                  </a>
-                  <a
+                  </a>}
+                  {member.website && <a
                     href={member.website}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-600 hover:text-blue-800"
                   >
                     <Globe className="w-5 h-5" />
-                  </a>
+                  </a>}
                 </div>
               </div>
             </div>

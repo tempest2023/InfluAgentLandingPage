@@ -85,7 +85,7 @@ export default function DashboardPreview() {
         </p>
         
         {/* 3D Scene Container */}
-        <div className="relative h-[700px]" style={{ perspective: "2000px" }}>
+        <div className="relative w-full max-w-5xl mx-auto aspect-[16/10]" style={{ perspective: "2000px" }}>
           <div className="relative w-full h-full flex justify-center items-center" style={{ transformStyle: "preserve-3d" }}>
             {images.map((image, index) => (
               <div 
@@ -100,13 +100,13 @@ export default function DashboardPreview() {
                   zIndex: imageStates[index].zIndex,
                   opacity: imageStates[index].position === 'transitioning' ? 0.7 : 1,
                   transformOrigin: '50% 50%',
-                  width: '120%', // Wider to ensure full display with increased tilt
+                  width: '100%',
                   height: '100%',
                   display: imageStates[index].position === 'back' && index !== (imageStates.findIndex(state => state.position === 'front') + 1) % images.length ? 'none' : 'block'
                 }}
               >
                 {/* Card Container */}
-                <div className="relative w-full h-full mx-auto" style={{ maxWidth: "95%" }}>
+                <div className="relative w-full h-full mx-auto">
                   {/* Main Image Container */}
                   <div 
                     className="relative w-full h-full bg-white rounded-lg"
@@ -115,13 +115,13 @@ export default function DashboardPreview() {
                       overflow: 'hidden'
                     }}
                   >
-                    <div className="w-full h-full">
+                    <div className="relative w-full h-full">
                       <Image
                         src={image.src}
                         alt={image.alt}
                         fill
-                        style={{ objectFit: 'contain' }}
-                        className="rounded-lg"
+                        className="rounded-lg object-contain"
+                        sizes="(max-width: 1536px) 90vw, 1200px"
                         priority={index === 0}
                       />
                     </div>

@@ -1,10 +1,19 @@
+"use client"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
+import { useState } from "react"
+import { Menu, X } from "lucide-react"
 
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen)
+  }
+
   return (
-    <header className="fixed w-full bg-white bg-opacity-90 z-10 shadow-sm">
+    <header className="fixed w-full bg-white bg-opacity-90 z-50 shadow-sm">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link href="/" className="flex items-center space-x-2">
           <div className="w-8 h-8 rounded-full overflow-hidden bg-white shadow-sm">
@@ -18,6 +27,8 @@ export default function Header() {
           </div>
           <span className="text-2xl font-bold text-gray-800">InfluAgent</span>
         </Link>
+        
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-6">
           <Link href="#features" className="text-gray-600 hover:text-gray-900">
             Features
@@ -37,12 +48,42 @@ export default function Header() {
           <Link href="/InfluAgentPreSeedBP/index.html" className="text-indigo-600 hover:text-indigo-800 font-medium">
             Pre-Seed BP
           </Link>
-
-          <Link href="/InfluAgentMobileDesign/index.html" className="text-indigo-600 hover:text-indigo-800 font-medium">
-            Mobile App
-          </Link>
         </nav>
-        <Button variant="outline">Get Started</Button>
+
+        {/* Mobile Menu Button */}
+        <div className="flex items-center md:hidden">
+          <Button variant="ghost" size="icon" onClick={toggleMenu} className="p-1">
+            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </Button>
+        </div>
+
+        {/* Get Started Button (Desktop) */}
+        <Button variant="outline" className="hidden md:inline-flex">Get Started</Button>
+      </div>
+
+      {/* Mobile Navigation */}
+      <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} bg-white shadow-lg`}>
+        <div className="px-4 py-3 space-y-3">
+          <Link href="#features" className="block text-gray-600 hover:text-gray-900 py-2">
+            Features
+          </Link>
+          <Link href="#pricing" className="block text-gray-600 hover:text-gray-900 py-2">
+            Pricing
+          </Link>
+          <Link href="#team" className="block text-gray-600 hover:text-gray-900 py-2">
+            Team
+          </Link>
+          <Link href="#faq" className="block text-gray-600 hover:text-gray-900 py-2">
+            FAQ
+          </Link>
+          <Link href="#contact" className="block text-gray-600 hover:text-gray-900 py-2">
+            Contact
+          </Link>
+          <Link href="/InfluAgentPreSeedBP/index.html" className="block text-indigo-600 hover:text-indigo-800 font-medium py-2">
+            Pre-Seed BP
+          </Link>
+          <Button variant="outline" className="w-full mt-4">Get Started</Button>
+        </div>
       </div>
     </header>
   )

@@ -34,7 +34,7 @@ export default function RootLayout({
         <link rel="icon" href="/camera.webp" type="image/webp" />
         <link rel="apple-touch-icon" href="/camera.webp" type="image/webp" />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

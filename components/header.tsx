@@ -18,7 +18,7 @@ export default function Header() {
         <Link href="/" className="flex items-center space-x-2">
           <div className="w-8 h-8 rounded-full overflow-hidden bg-white shadow-sm">
             <Image
-              src="/camera.webp"
+              src="/icon.png"
               alt="InfluAgent Logo"
               width={32}
               height={32}

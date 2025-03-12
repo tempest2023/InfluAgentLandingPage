@@ -10,14 +10,18 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/camera.webp',
-        type: 'image/webp',
+        url: '/icon.ico',
+        type: 'image/x-icon',
+      },
+      {
+        url: '/icon.png',
+        type: 'image/png',
       }
     ],
     apple: [
       {
-        url: '/camera.webp',
-        type: 'image/webp',
+        url: '/icon.png',
+        type: 'image/png',
       }
     ]
   }
@@ -31,8 +35,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/camera.webp" type="image/webp" />
-        <link rel="apple-touch-icon" href="/camera.webp" type="image/webp" />
+        <link rel="icon" href="/icon.ico" type="image/x-icon" />
+        <link rel="icon" href="/icon.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/icon.png" type="image/png" />
       </head>
       <body suppressHydrationWarning>
         <ThemeProvider

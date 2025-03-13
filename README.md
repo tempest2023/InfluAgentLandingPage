@@ -109,3 +109,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Project Maintainer: Tempest
 - Email: tar118@pitt.edu
+
+## More Features TODO List
+- Integrate with Supabase to insert Waitlist info into database [DONE]

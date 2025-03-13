@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Check } from "lucide-react"
 import { useWaitlist } from "@/contexts/waitlist-context"
-import { supabase } from "@/lib/supabase"
+import { SparklesText } from "@/components/ui/sparkles-text"
 import { useToast } from "@/components/ui/use-toast"
 
 export default function WaitlistModal() {
@@ -83,7 +83,9 @@ export default function WaitlistModal() {
             </div>
             <div className="bg-blue-50 p-4 rounded-lg space-y-2">
               <p className="font-medium">Your current position in the waitlist:</p>
-              <p className="text-3xl font-bold text-blue-600">#{waitlistCount}</p>
+              <div className="text-3xl font-bold text-blue-600">
+                <SparklesText text={`#${waitlistCount}`} />
+              </div>
               <p className="text-sm text-gray-600">Expected public release: Q2 2025</p>
             </div>
             <Button onClick={handleClose} className="w-full">Close</Button>

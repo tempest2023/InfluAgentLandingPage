@@ -1,457 +1,742 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../icon.ico" type="image/x-icon">
-    <link rel="icon" href="../icon.png" type="image/png">
-    <link rel="apple-touch-icon" sizes="180x180" href="../icon.png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../icon.ico" type="image/x-icon" />
+    <link rel="icon" href="../icon.png" type="image/png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../icon.png" />
     <title>InfluAgent - Pre-Seed Business Plan</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
     <style>
-        .primary-highlight-text {
-            background: linear-gradient(90deg, #446dcd, #4bb6d3, #6ef2cc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+      body {
+        font-family: 'Roboto', sans-serif;
+      }
+      h1, h2, h3, h4, h5, h6, .font-heading {
+        font-family: 'Inter', sans-serif;
+      }
+      .primary-highlight-text {
+        background: linear-gradient(90deg, #446dcd, #4bb6d3, #6ef2cc);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .primary-background-gradient {
+        background: linear-gradient(
+          45deg,
+          #1a263e 10%,
+          #2f456d 40% 60%,
+          #1a263e 90%
+        );
+      }
+      .gradient-text {
+        background: linear-gradient(120deg, #4f46e5, #7c3aed);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .hero-gradient {
+        background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+      }
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+      .feature-icon {
+        font-size: 2rem;
+        background: -webkit-linear-gradient(120deg, #4f46e5, #7c3aed);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .section {
+        transition: all 0.3s ease;
+      }
+      .section:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+      /* Modal Styles */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 1000;
+        overflow: auto;
+        cursor: pointer;
+        display: none;
+        justify-content: center;
+        align-items: center;
+      }
+      .modal-content {
+        margin: auto;
+        display: block;
+        max-width: 90%;
+        max-height: 90vh;
+        object-fit: contain;
+      }
+      .zoomable {
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+      .zoomable:hover {
+        transform: scale(1.02);
+      }
+      .close {
+        position: absolute;
+        right: 25px;
+        top: 15px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 1001;
+      }
+      .chart-container {
+        position: relative;
+        margin: auto;
+        height: auto;
+        width: 100%;
+      }
+      @media (max-width: 768px) {
+        .container {
+          padding: 1rem;
         }
-        .primary-background-gradient {
-            background: linear-gradient(45deg, #1a263e 10%, #2f456d 40% 60%, #1a263e 90%);
+        .grid {
+          grid-template-columns: 1fr !important;
         }
-        .gradient-text {
-            background: linear-gradient(120deg, #4F46E5, #7C3AED);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .chart-container {
+          height: 300px !important;
         }
-        .hero-gradient {
-            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+        h1 {
+          font-size: 1.5rem !important;
         }
-        .card-hover {
-            transition: all 0.3s ease;
+        h2 {
+          font-size: 1.25rem !important;
         }
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        .text-xl {
+          font-size: 1rem !important;
         }
-        .feature-icon {
-            font-size: 2rem;
-            background: -webkit-linear-gradient(120deg, #4F46E5, #7C3AED);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            z-index: 1000;
-            overflow: auto;
-            cursor: pointer;
-            display: none;
-            justify-content: center;
-            align-items: center;
-        }
-        .modal-content {
-            margin: auto;
-            display: block;
-            max-width: 90%;
-            max-height: 90vh;
-            object-fit: contain;
-        }
-        .zoomable {
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        .zoomable:hover {
-            transform: scale(1.02);
-        }
-        .close {
-            position: absolute;
-            right: 25px;
-            top: 15px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-            z-index: 1001;
-        }
+      }
     </style>
-</head>
-<body class="bg-gray-50">
+  </head>
+  <body class="bg-gray-50">
     <!-- Top Notification -->
-    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-1.5 sm:py-2 px-2 sm:px-4">
-        <div class="container mx-auto">
-            <div class="flex items-center justify-center space-x-1.5 sm:space-x-2 text-xs sm:text-sm md:text-base">
-                <i class="fas fa-lock text-sm sm:text-base"></i>
-                <span class="font-semibold truncate">Confidential Investment Presentation</span>
-                <button 
-                    class="ml-1 sm:ml-2 text-white hover:text-indigo-200 focus:outline-none" 
-                    onclick="document.getElementById('confidentialityModal').classList.remove('hidden')"
-                >
-                    <i class="fas fa-info-circle text-sm sm:text-base"></i>
-                </button>
-            </div>
+    <div
+      class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-1.5 sm:py-2 px-2 sm:px-4"
+    >
+      <div class="container mx-auto">
+        <div
+          class="flex items-center justify-center space-x-1.5 sm:space-x-2 text-xs sm:text-sm md:text-base"
+        >
+          <i class="fas fa-lock text-sm sm:text-base"></i>
+          <span class="font-semibold truncate"
+            >Confidential Investment Presentation</span
+          >
+          <button
+            class="ml-1 sm:ml-2 text-white hover:text-indigo-200 focus:outline-none"
+            onclick="document.getElementById('confidentialityModal').classList.remove('hidden')"
+          >
+            <i class="fas fa-info-circle text-sm sm:text-base"></i>
+          </button>
         </div>
+      </div>
     </div>
 
     <!-- Confidentiality Modal -->
-    <div id="confidentialityModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center px-4">
-        <div class="bg-white rounded-lg max-w-2xl w-full p-6 relative">
-            <div class="text-center mb-6">
-                <i class="fas fa-shield-alt text-4xl text-indigo-600 mb-4"></i>
-                <h3 class="text-xl font-bold text-gray-900">Confidentiality Notice</h3>
-            </div>
-            <div class="space-y-4 text-gray-600">
-                <p class="border-l-4 border-indigo-500 pl-4">
-                    This document contains sensitive information intended solely for the recipient's review and feedback.
-                </p>
-                <p>The contents of this page are:</p>
-                <ul class="list-disc list-inside space-y-2 ml-4">
-                    <li>Strictly confidential</li>
-                    <li>Not to be reproduced or shared</li>
-                    <li>Protected by non-disclosure agreement</li>
-                    <li>For authorized viewing only</li>
-                </ul>
-                <p class="text-sm bg-gray-50 p-4 rounded-lg">
-                    By continuing to view this document, you agree to maintain its confidentiality and take reasonable precautions 
-                    to prevent unauthorized access, copying, or disclosure of the information contained herein.
-                </p>
-            </div>
-            <div class="mt-6 text-center">
-                <button 
-                    class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition-colors"
-                    onclick="document.getElementById('confidentialityModal').classList.add('hidden')"
-                >
-                    I Understand
-                </button>
-            </div>
+    <div
+      id="confidentialityModal"
+      class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center px-4"
+    >
+      <div class="bg-white rounded-lg max-w-2xl w-full p-6 relative">
+        <div class="text-center mb-6">
+          <i class="fas fa-shield-alt text-4xl text-indigo-600 mb-4"></i>
+          <h3 class="text-xl font-bold text-gray-900">
+            Confidentiality Notice
+          </h3>
         </div>
+        <div class="space-y-4 text-gray-600">
+          <p class="border-l-4 border-indigo-500 pl-4">
+            This document contains sensitive information intended solely for the
+            recipient's review and feedback.
+          </p>
+          <p>The contents of this page are:</p>
+          <ul class="list-disc list-inside space-y-2 ml-4">
+            <li>Strictly confidential</li>
+            <li>Not to be reproduced or shared</li>
+            <li>Protected by non-disclosure agreement</li>
+            <li>For authorized viewing only</li>
+          </ul>
+          <p class="text-sm bg-gray-50 p-4 rounded-lg">
+            By continuing to view this document, you agree to maintain its
+            confidentiality and take reasonable precautions to prevent
+            unauthorized access, copying, or disclosure of the information
+            contained herein.
+          </p>
+        </div>
+        <div class="mt-6 text-center">
+          <button
+            class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition-colors"
+            onclick="document.getElementById('confidentialityModal').classList.add('hidden')"
+          >
+            I Understand
+          </button>
+        </div>
+      </div>
     </div>
 
     <!-- Header -->
     <header class="w-full bg-white shadow-sm">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-4">
-                <button onclick="window.location.href='/'" class="text-2xl font-bold text-gray-800 hover:text-indigo-600 transition-colors duration-200 flex items-center">
-                    <img src="../icon.png" alt="InfluAgent Icon" class="w-8 h-8 mr-2">
-                    InfluAgent
-                </button>
-                <span class="text-gray-400">|</span>
-                <span class="text-indigo-600 font-semibold">Pre-Seed Business Plan</span>
-            </div>
-            <div class="flex items-center space-x-4">
-                <a href="../InfluAgentMobileDesign/index.html" target="_blank" class="px-4 py-2 text-indigo-600 hover:text-indigo-800 font-medium transition-colors duration-200">
-                    <i class="fas fa-mobile-alt mr-2"></i>App Design
-                </a>
-                <button onclick="window.location.href='/'" class="px-4 py-2 text-indigo-600 hover:text-indigo-800 font-medium transition-colors duration-200">
-                    <i class="fas fa-arrow-left mr-2"></i>Back to Landing Page
-                </button>
-            </div>
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <div class="flex items-center space-x-4">
+          <button
+            onclick="window.location.href='/'"
+            class="text-2xl font-bold text-gray-800 hover:text-indigo-600 transition-colors duration-200 flex items-center"
+          >
+            <img src="../icon.png" alt="InfluAgent Icon" class="w-8 h-8 mr-2" />
+            InfluAgent
+          </button>
+          <span class="text-gray-400">|</span>
+          <span class="text-indigo-600 font-semibold"
+            >Pre-Seed Business Plan</span
+          >
         </div>
+        <div class="flex items-center space-x-4">
+          <a
+            href="../InfluAgentMobileDesign/index.html"
+            target="_blank"
+            class="px-4 py-2 text-indigo-600 hover:text-indigo-800 font-medium transition-colors duration-200"
+          >
+            <i class="fas fa-mobile-alt mr-2"></i>App Design
+          </a>
+          <button
+            onclick="window.location.href='/'"
+            class="px-4 py-2 text-indigo-600 hover:text-indigo-800 font-medium transition-colors duration-200"
+          >
+            <i class="fas fa-arrow-left mr-2"></i>Back to Landing Page
+          </button>
+        </div>
+      </div>
     </header>
 
     <!-- Modal -->
     <div id="imageModal" class="modal">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="modalImage">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="modalImage" />
     </div>
 
     <!-- Hero Section -->
     <section class="hero-gradient text-white py-20">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col lg:flex-row items-center">
-                <div class="lg:w-1/2 mb-10 lg:mb-0">
-                    <h1 class="text-5xl font-bold mb-6">InfluAgent</h1>
-                    <h2 class="text-3xl font-semibold mb-6">The Devin of Social Media | Your Voice, Amplified 24/7</h2>
-                    <p class="text-xl mb-8">
-                        Not just another AI tool, a fully autonomous agent empowering individuals and businesses to build, scale, and thrive in social media.
-                    </p>
-                    <div class="flex space-x-4">
-                        <button class="border-2 bg-white text-indigo-600 px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-indigo-600 hover:text-white hover:border-white active:scale-95 active:opacity-90" onclick="location.href='/'">
-                            Get Started
-                        </button>
-                        <button class="border-2 border-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-white hover:text-indigo-600 active:scale-95 active:opacity-90" onclick="document.querySelector('#our-solution').scrollIntoView({behavior: 'smooth'})">
-                            Learn More
-                        </button>
-                    </div>
-                </div>
-                <div class="lg:w-1/2">
-                    <img src="./Dashboard.png" alt="AI Social Media" class="rounded-lg shadow-2xl zoomable">
-                </div>
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col lg:flex-row items-center">
+          <div class="lg:w-1/2 mb-10 lg:mb-0">
+            <h1 class="text-5xl font-bold mb-6">InfluAgent</h1>
+            <h2 class="text-3xl font-semibold mb-6">
+              The Devin of Social Media | Your Voice, Amplified 24/7
+            </h2>
+            <p class="text-xl mb-8">
+              Not just another AI tool, a fully autonomous agent empowering
+              individuals and businesses to build, scale, and thrive in social
+              media.
+            </p>
+            <div class="flex space-x-4">
+              <button
+                class="border-2 bg-white text-indigo-600 px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-indigo-600 hover:text-white hover:border-white active:scale-95 active:opacity-90"
+                onclick="location.href='/'"
+              >
+                Get Started
+              </button>
+              <button
+                class="border-2 border-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-white hover:text-indigo-600 active:scale-95 active:opacity-90"
+                onclick="document.querySelector('#our-solution').scrollIntoView({behavior: 'smooth'})"
+              >
+                Learn More
+              </button>
             </div>
+          </div>
+          <div class="lg:w-1/2">
+            <img
+              src="./Dashboard.png"
+              alt="AI Social Media"
+              class="rounded-lg shadow-2xl zoomable"
+            />
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Our Solution Section -->
     <section class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">The Problems We Solve</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Problem Cards -->
-                <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
-                    <div class="text-4xl mb-4 text-indigo-600">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Time-Consuming Process</h3>
-                    <p class="text-gray-600">
-                        Building an influencer presence requires consistent posting, interaction, and engagement—nearly impossible to maintain at scale.
-                    </p>
-                </div>
-
-                <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
-                    <div class="text-4xl mb-4 text-indigo-600">
-                        <i class="fas fa-dollar-sign"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Inefficient & Costly</h3>
-                    <p class="text-gray-600">
-                        Traditional social media management through agencies or freelancers is expensive with inconsistent quality.
-                    </p>
-                </div>
-
-                <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
-                    <div class="text-4xl mb-4 text-indigo-600">
-                        <i class="fas fa-compass"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Lack of Strategy</h3>
-                    <p class="text-gray-600">
-                        Many accounts post regularly but lack clear strategy for targeting audience and optimal timing.
-                    </p>
-                </div>
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-16 gradient-text">
+          The Problems We Solve
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Problem Cards -->
+          <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
+            <div class="text-4xl mb-4 text-indigo-600">
+              <i class="fas fa-clock"></i>
             </div>
+            <h3 class="text-xl font-bold mb-4">Time-Consuming Process</h3>
+            <p class="text-gray-600">
+              Building an influencer presence requires consistent posting,
+              interaction, and engagement—nearly impossible to maintain at
+              scale.
+            </p>
+          </div>
+
+          <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
+            <div class="text-4xl mb-4 text-indigo-600">
+              <i class="fas fa-dollar-sign"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Inefficient & Costly</h3>
+            <p class="text-gray-600">
+              Traditional social media management through agencies or
+              freelancers is expensive with inconsistent quality.
+            </p>
+          </div>
+
+          <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
+            <div class="text-4xl mb-4 text-indigo-600">
+              <i class="fas fa-compass"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Lack of Strategy</h3>
+            <p class="text-gray-600">
+              Many accounts post regularly but lack clear strategy for targeting
+              audience and optimal timing.
+            </p>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Solution Section -->
     <section id="our-solution" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Our Solution</h2>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
-                <div class="space-y-6">
-                    <div class="flex items-start space-x-4">
-                        <div class="text-3xl text-indigo-600">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-2">AI-Driven Automation</h3>
-                            <p class="text-gray-600">Autonomous agent handling daily social media operations, from posting to engagement.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start space-x-4">
-                        <div class="text-3xl text-indigo-600">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-2">Smart Growth Strategy</h3>
-                            <p class="text-gray-600">AI develops and executes customized, long-term growth strategies.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start space-x-4">
-                        <div class="text-3xl text-indigo-600">
-                            <i class="fas fa-tachometer-alt"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-2">Real-time Dashboard</h3>
-                            <p class="text-gray-600">Monitor progress, refine content, and maintain control with our intuitive interface.</p>
-                        </div>
-                    </div>
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-16 gradient-text">
+          Our Solution
+        </h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+          <div class="space-y-6">
+            <div class="flex items-start space-x-4">
+              <div class="text-3xl text-indigo-600">
+                <i class="fas fa-robot"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-2">AI-Driven Automation</h3>
+                <p class="text-gray-600">
+                  Autonomous agent handling daily social media operations, from
+                  posting to engagement.
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-4">
+              <div class="text-3xl text-indigo-600">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-2">Smart Growth Strategy</h3>
+                <p class="text-gray-600">
+                  AI develops and executes customized, long-term growth
+                  strategies.
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-4">
+              <div class="text-3xl text-indigo-600">
+                <i class="fas fa-tachometer-alt"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-2">Real-time Dashboard</h3>
+                <p class="text-gray-600">
+                  Monitor progress, refine content, and maintain control with
+                  our intuitive interface.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <img
+              src="./Dashboard.png"
+              alt="InfluAgent Dashboard"
+              class="rounded-lg shadow-xl zoomable"
+            />
+          </div>
+        </div>
+
+        <!-- Mobile App Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="relative flex justify-center items-center">
+            <!-- Carousel container -->
+            <div
+              class="carousel-container overflow-hidden rounded-lg shadow-xl relative mb-12"
+              style="width: 280px; height: 580px; background: #f5f5f5"
+            >
+              <div
+                class="carousel-track flex transition-transform duration-500 h-full"
+              >
+                <div
+                  class="carousel-slide w-full flex-shrink-0 flex items-center justify-center"
+                >
+                  <img
+                    src="../InfluAgentMobileDesign/MobileDesign/Login.png"
+                    alt="InfluAgent Mobile Login"
+                    class="w-full h-full object-contain"
+                  />
                 </div>
-                <div>
-                    <img src="./Dashboard.png" alt="InfluAgent Dashboard" class="rounded-lg shadow-xl zoomable">
+                <div
+                  class="carousel-slide w-full flex-shrink-0 flex items-center justify-center"
+                >
+                  <img
+                    src="../InfluAgentMobileDesign/MobileDesign/Home.png"
+                    alt="InfluAgent Mobile Home"
+                    class="w-full h-full object-contain"
+                  />
                 </div>
+                <div
+                  class="carousel-slide w-full flex-shrink-0 flex items-center justify-center"
+                >
+                  <img
+                    src="../InfluAgentMobileDesign/MobileDesign/Goals.png"
+                    alt="InfluAgent Mobile Goals"
+                    class="w-full h-full object-contain"
+                  />
+                </div>
+                <div
+                  class="carousel-slide w-full flex-shrink-0 flex items-center justify-center"
+                >
+                  <img
+                    src="../InfluAgentMobileDesign/MobileDesign/Overview.png"
+                    alt="InfluAgent Mobile Overview"
+                    class="w-full h-full object-contain"
+                  />
+                </div>
+                <div
+                  class="carousel-slide w-full flex-shrink-0 flex items-center justify-center"
+                >
+                  <img
+                    src="../InfluAgentMobileDesign/MobileDesign/Align.png"
+                    alt="InfluAgent Mobile Align"
+                    class="w-full h-full object-contain"
+                  />
+                </div>
+                <div
+                  class="carousel-slide w-full flex-shrink-0 flex items-center justify-center"
+                >
+                  <img
+                    src="../InfluAgentMobileDesign/MobileDesign/Reflect.png"
+                    alt="InfluAgent Mobile Reflect"
+                    class="w-full h-full object-contain"
+                  />
+                </div>
+              </div>
             </div>
 
-            <!-- Mobile App Section -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="relative flex justify-center items-center">
-                    <!-- Carousel container -->
-                    <div class="carousel-container overflow-hidden rounded-lg shadow-xl relative mb-12" style="width: 280px; height: 580px; background: #f5f5f5;">
-                        <div class="carousel-track flex transition-transform duration-500 h-full">
-                            <div class="carousel-slide w-full flex-shrink-0 flex items-center justify-center">
-                                <img src="../InfluAgentMobileDesign/MobileDesign/Login.png" alt="InfluAgent Mobile Login" class="w-full h-full object-contain">
-                            </div>
-                            <div class="carousel-slide w-full flex-shrink-0 flex items-center justify-center">
-                                <img src="../InfluAgentMobileDesign/MobileDesign/Home.png" alt="InfluAgent Mobile Home" class="w-full h-full object-contain">
-                            </div>
-                            <div class="carousel-slide w-full flex-shrink-0 flex items-center justify-center">
-                                <img src="../InfluAgentMobileDesign/MobileDesign/Goals.png" alt="InfluAgent Mobile Goals" class="w-full h-full object-contain">
-                            </div>
-                            <div class="carousel-slide w-full flex-shrink-0 flex items-center justify-center">
-                                <img src="../InfluAgentMobileDesign/MobileDesign/Overview.png" alt="InfluAgent Mobile Overview" class="w-full h-full object-contain">
-                            </div>
-                            <div class="carousel-slide w-full flex-shrink-0 flex items-center justify-center">
-                                <img src="../InfluAgentMobileDesign/MobileDesign/Align.png" alt="InfluAgent Mobile Align" class="w-full h-full object-contain">
-                            </div>
-                            <div class="carousel-slide w-full flex-shrink-0 flex items-center justify-center">
-                                <img src="../InfluAgentMobileDesign/MobileDesign/Reflect.png" alt="InfluAgent Mobile Reflect" class="w-full h-full object-contain">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Dots indicator -->
-                    <div class="absolute bottom-0 left-0 right-0 flex justify-center space-x-3 pb-2">
-                        <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-indigo-600 transition-all"></button>
-                        <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-indigo-600 transition-all"></button>
-                        <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-indigo-600 transition-all"></button>
-                        <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-indigo-600 transition-all"></button>
-                        <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-indigo-600 transition-all"></button>
-                        <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-indigo-600 transition-all"></button>
-                    </div>
-                </div>
-                <div class="space-y-6">
-                    <div class="mb-8">
-                        <h3 class="text-2xl font-bold mb-4 gradient-text">Mobile App for On-the-Go Control</h3>
-                        <p class="text-gray-600 text-lg mb-6">
-                            Stay connected with your AI agent anytime, anywhere. Our mobile app puts the power of InfluAgent in your pocket.
-                            <span>Check out <a href="../InfluAgentMobileDesign/index.html" class="text-indigo-600 hover:text-indigo-800 inline-flex items-center" target="_blank">the detail prototype design here <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a></span>
-                        </p>
-                    </div>
-                    <div class="space-y-6">
-                        <div class="flex items-start space-x-4">
-                            <div class="text-3xl text-indigo-600">
-                                <i class="fas fa-mobile-alt"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-bold mb-2">Real-time Monitoring</h4>
-                                <p class="text-gray-600">Track your agent's activities, view posts, comments, and trending data in real-time.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="text-3xl text-indigo-600">
-                                <i class="fas fa-comments"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-bold mb-2">Agent Communication</h4>
-                                <p class="text-gray-600">Chat with your AI agent to adjust strategies, fine-tune tasks, and provide feedback.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="text-3xl text-indigo-600">
-                                <i class="fas fa-bell"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-bold mb-2">Smart Notifications</h4>
-                                <p class="text-gray-600">Receive instant alerts for important actions, approval requests, and performance milestones.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="text-3xl text-indigo-600">
-                                <i class="fas fa-key"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-bold mb-2">Quick Authorization</h4>
-                                <p class="text-gray-600">Seamlessly manage permissions and authenticate social media accounts on the go.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <!-- Dots indicator -->
+            <div
+              class="absolute bottom-0 left-0 right-0 flex justify-center space-x-3 pb-2"
+            >
+              <button
+                class="carousel-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-indigo-600 transition-all"
+              ></button>
+              <button
+                class="carousel-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-indigo-600 transition-all"
+              ></button>
+              <button
+                class="carousel-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-indigo-600 transition-all"
+              ></button>
+              <button
+                class="carousel-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-indigo-600 transition-all"
+              ></button>
+              <button
+                class="carousel-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-indigo-600 transition-all"
+              ></button>
+              <button
+                class="carousel-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-indigo-600 transition-all"
+              ></button>
             </div>
+          </div>
+          <div class="space-y-6">
+            <div class="mb-8">
+              <h3 class="text-2xl font-bold mb-4 gradient-text">
+                Mobile App for On-the-Go Control
+              </h3>
+              <p class="text-gray-600 text-lg mb-6">
+                Stay connected with your AI agent anytime, anywhere. Our mobile
+                app puts the power of InfluAgent in your pocket.
+                <span
+                  >Check out
+                  <a
+                    href="../InfluAgentMobileDesign/index.html"
+                    class="text-indigo-600 hover:text-indigo-800 inline-flex items-center"
+                    target="_blank"
+                    >the detail prototype design here
+                    <svg
+                      class="w-4 h-4 ml-1"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                      ></path></svg></a
+                ></span>
+              </p>
+            </div>
+            <div class="space-y-6">
+              <div class="flex items-start space-x-4">
+                <div class="text-3xl text-indigo-600">
+                  <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div>
+                  <h4 class="text-xl font-bold mb-2">Real-time Monitoring</h4>
+                  <p class="text-gray-600">
+                    Track your agent's activities, view posts, comments, and
+                    trending data in real-time.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <div class="text-3xl text-indigo-600">
+                  <i class="fas fa-comments"></i>
+                </div>
+                <div>
+                  <h4 class="text-xl font-bold mb-2">Agent Communication</h4>
+                  <p class="text-gray-600">
+                    Chat with your AI agent to adjust strategies, fine-tune
+                    tasks, and provide feedback.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <div class="text-3xl text-indigo-600">
+                  <i class="fas fa-bell"></i>
+                </div>
+                <div>
+                  <h4 class="text-xl font-bold mb-2">Smart Notifications</h4>
+                  <p class="text-gray-600">
+                    Receive instant alerts for important actions, approval
+                    requests, and performance milestones.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <div class="text-3xl text-indigo-600">
+                  <i class="fas fa-key"></i>
+                </div>
+                <div>
+                  <h4 class="text-xl font-bold mb-2">Quick Authorization</h4>
+                  <p class="text-gray-600">
+                    Seamlessly manage permissions and authenticate social media
+                    accounts on the go.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Product Section -->
     <section class="py-20 bg-white">
       <div class="container mx-auto px-6">
-        <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Product Features</h2>
+        <h2 class="text-4xl font-bold text-center mb-16 gradient-text">
+          Product Features
+        </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    
           <!-- Feature 1: One-Click Twitter Authorization -->
           <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
-            <img 
-              src="https://images.unsplash.com/photo-1611605698335-8b1569810432?auto=format&fit=crop&q=80" 
-              alt="Twitter one-click authorization" 
+            <img
+              src="https://images.unsplash.com/photo-1611605698335-8b1569810432?auto=format&fit=crop&q=80"
+              alt="Twitter one-click authorization"
               class="w-full rounded-lg mb-6 zoomable h-64 object-cover"
             />
-            <h3 class="text-xl font-bold mb-4">One-Click Twitter Authorization</h3>
+            <h3 class="text-xl font-bold mb-4">
+              One-Click Twitter Authorization
+            </h3>
             <ul class="list-disc list-inside text-gray-600 leading-relaxed">
-              <li><strong>Seamless Integration</strong>: Connect your Twitter account with a single click, no complex setup required.</li>
-              <li><strong>Secure Authentication</strong>: OAuth integration ensures your credentials stay protected.</li>
-              <li><strong>Instant Access</strong>: Immediately grant your AI Agent the permissions it needs to operate on your behalf.</li>
-              <li><strong>Multi-Account Support</strong>: Easily manage multiple Twitter profiles from a single dashboard.</li>
+              <li>
+                <strong>Seamless Integration</strong>: Connect your Twitter
+                account with a single click, no complex setup required.
+              </li>
+              <li>
+                <strong>Secure Authentication</strong>: OAuth integration
+                ensures your credentials stay protected.
+              </li>
+              <li>
+                <strong>Instant Access</strong>: Immediately grant your AI Agent
+                the permissions it needs to operate on your behalf.
+              </li>
+              <li>
+                <strong>Multi-Account Support</strong>: Easily manage multiple
+                Twitter profiles from a single dashboard.
+              </li>
             </ul>
           </div>
-    
+
           <!-- Feature 2: AI Agent Communication & Strategy -->
           <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
-            <img 
-              src="https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&q=80" 
-              alt="Communicating with AI Agent for social media strategy" 
+            <img
+              src="https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&q=80"
+              alt="Communicating with AI Agent for social media strategy"
               class="w-full rounded-lg mb-6 zoomable h-64 object-cover"
             />
             <h3 class="text-xl font-bold mb-4">Strategic AI Communication</h3>
             <ul class="list-disc list-inside text-gray-600 leading-relaxed">
-              <li><strong>Define Growth Goals</strong>: Set specific follower targets and timeline expectations.</li>
-              <li><strong>Content Style Definition</strong>: Customize your brand voice, posting style, and content themes.</li>
-              <li><strong>Audience Targeting</strong>: Identify your ideal followers and potential customers with precision.</li>
-              <li><strong>Conversation-Based Setup</strong>: Just chat with your AI Agent naturally—no complex forms or technical setup.</li>
+              <li>
+                <strong>Define Growth Goals</strong>: Set specific follower
+                targets and timeline expectations.
+              </li>
+              <li>
+                <strong>Content Style Definition</strong>: Customize your brand
+                voice, posting style, and content themes.
+              </li>
+              <li>
+                <strong>Audience Targeting</strong>: Identify your ideal
+                followers and potential customers with precision.
+              </li>
+              <li>
+                <strong>Conversation-Based Setup</strong>: Just chat with your
+                AI Agent naturally—no complex forms or technical setup.
+              </li>
             </ul>
           </div>
-    
+
           <!-- Feature 3: Autonomous Task Execution -->
           <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
-            <img 
-              src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80" 
-              alt="AI agent executing daily social media tasks" 
+            <img
+              src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80"
+              alt="AI agent executing daily social media tasks"
               class="w-full rounded-lg mb-6 zoomable h-64 object-cover"
             />
             <h3 class="text-xl font-bold mb-4">Autonomous Task Execution</h3>
             <ul class="list-disc list-inside text-gray-600 leading-relaxed">
-              <li><strong>Goal-Based Task Creation</strong>: AI automatically breaks down your objectives into actionable daily tasks.</li>
-              <li><strong>Intelligent Posting</strong>: Creates and schedules content that aligns with your strategy.</li>
-              <li><strong>Smart Engagement</strong>: Automatically likes, comments, and responds to relevant content in your niche.</li>
-              <li><strong>24/7 Operation</strong>: Your social presence grows even while you sleep, with continuous activity.</li>
+              <li>
+                <strong>Goal-Based Task Creation</strong>: AI automatically
+                breaks down your objectives into actionable daily tasks.
+              </li>
+              <li>
+                <strong>Intelligent Posting</strong>: Creates and schedules
+                content that aligns with your strategy.
+              </li>
+              <li>
+                <strong>Smart Engagement</strong>: Automatically likes,
+                comments, and responds to relevant content in your niche.
+              </li>
+              <li>
+                <strong>24/7 Operation</strong>: Your social presence grows even
+                while you sleep, with continuous activity.
+              </li>
             </ul>
           </div>
-    
+
           <!-- Feature 4: Agent Management Dashboard -->
           <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
-            <img 
-              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80" 
-              alt="Agent management dashboard" 
+            <img
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80"
+              alt="Agent management dashboard"
               class="w-full rounded-lg mb-6 zoomable h-64 object-cover"
             />
             <h3 class="text-xl font-bold mb-4">Agent Management Dashboard</h3>
             <ul class="list-disc list-inside text-gray-600 leading-relaxed">
-              <li><strong>Activity Monitoring</strong>: View all posts, interactions, DM responses, and browsing activities in real-time.</li>
-              <li><strong>Risk Assessment</strong>: Get notifications for high-risk actions that require manual approval.</li>
-              <li><strong>Task History</strong>: Complete logs of all actions taken by your AI Agent with detailed timestamps.</li>
-              <li><strong>Agent Controls</strong>: Pause, resume, or redirect your Agent's activities with simple commands.</li>
+              <li>
+                <strong>Activity Monitoring</strong>: View all posts,
+                interactions, DM responses, and browsing activities in
+                real-time.
+              </li>
+              <li>
+                <strong>Risk Assessment</strong>: Get notifications for
+                high-risk actions that require manual approval.
+              </li>
+              <li>
+                <strong>Task History</strong>: Complete logs of all actions
+                taken by your AI Agent with detailed timestamps.
+              </li>
+              <li>
+                <strong>Agent Controls</strong>: Pause, resume, or redirect your
+                Agent's activities with simple commands.
+              </li>
             </ul>
           </div>
-    
+
           <!-- Feature 5: Performance Dashboard -->
           <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
-            <img 
-              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80" 
-              alt="Performance analytics dashboard" 
+            <img
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80"
+              alt="Performance analytics dashboard"
               class="w-full rounded-lg mb-6 zoomable h-64 object-cover"
             />
             <h3 class="text-xl font-bold mb-4">Performance Dashboard</h3>
             <ul class="list-disc list-inside text-gray-600 leading-relaxed">
-              <li><strong>Growth Metrics</strong>: Track follower counts, engagement rates, and content performance over time.</li>
-              <li><strong>Content Analysis</strong>: Discover which posts perform best and why they resonate with your audience.</li>
-              <li><strong>Traffic Sources</strong>: Identify where your most engaged followers are coming from.</li>
-              <li><strong>Trend Analysis</strong>: Stay informed about trending topics relevant to your niche for timely content.</li>
+              <li>
+                <strong>Growth Metrics</strong>: Track follower counts,
+                engagement rates, and content performance over time.
+              </li>
+              <li>
+                <strong>Content Analysis</strong>: Discover which posts perform
+                best and why they resonate with your audience.
+              </li>
+              <li>
+                <strong>Traffic Sources</strong>: Identify where your most
+                engaged followers are coming from.
+              </li>
+              <li>
+                <strong>Trend Analysis</strong>: Stay informed about trending
+                topics relevant to your niche for timely content.
+              </li>
             </ul>
           </div>
-    
+
           <!-- Feature 6: Collaborative Content Creation -->
           <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
-            <img 
-              src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80" 
-              alt="Collaborative content creation with AI" 
+            <img
+              src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80"
+              alt="Collaborative content creation with AI"
               class="w-full rounded-lg mb-6 zoomable h-64 object-cover"
             />
-            <h3 class="text-xl font-bold mb-4">Collaborative Content Creation</h3>
+            <h3 class="text-xl font-bold mb-4">
+              Collaborative Content Creation
+            </h3>
             <ul class="list-disc list-inside text-gray-600 leading-relaxed">
-              <li><strong>Content Co-Creation</strong>: Work alongside your AI Agent to draft, edit, and perfect your posts.</li>
-              <li><strong>Content Optimization</strong>: Get AI-powered suggestions to improve engagement on your drafted content.</li>
-              <li><strong>Image & Caption Pairings</strong>: Receive recommendations for compelling visual and text combinations.</li>
-              <li><strong>A/B Testing</strong>: Test multiple content versions to determine what resonates best with your audience.</li>
+              <li>
+                <strong>Content Co-Creation</strong>: Work alongside your AI
+                Agent to draft, edit, and perfect your posts.
+              </li>
+              <li>
+                <strong>Content Optimization</strong>: Get AI-powered
+                suggestions to improve engagement on your drafted content.
+              </li>
+              <li>
+                <strong>Image & Caption Pairings</strong>: Receive
+                recommendations for compelling visual and text combinations.
+              </li>
+              <li>
+                <strong>A/B Testing</strong>: Test multiple content versions to
+                determine what resonates best with your audience.
+              </li>
             </ul>
           </div>
         </div>
@@ -460,163 +745,276 @@
 
     <!-- Market & Business Model Section -->
     <section class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Market & Pricing</h2>
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-2xl font-bold mb-4 gradient-text">We provide various Subscription Plan for different targeted users</h2>
-            </div>
-
-            <!-- Pricing Cards -->
-            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Basic Plan -->
-                <div class="bg-white rounded-2xl shadow-lg p-8 transform hover:scale-105 hover:bg-indigo-600 hover:shadow-2xl transition-all duration-300 group">
-                    <div class="text-center mb-8">
-                        <h3 class="text-2xl font-bold mb-4 group-hover:text-white">Basic</h3>
-                        <div class="text-4xl font-bold mb-2 group-hover:text-white">$99<span class="text-lg text-gray-500 group-hover:text-indigo-200">/mo</span></div>
-                        <p class="text-gray-600 group-hover:text-indigo-200">For personal brand builders</p>
-                    </div>
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"></i>
-                            <span class="group-hover:text-white">5 AI-generated posts/day</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"></i>
-                            <span class="group-hover:text-white">75 automated comments/day</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"></i>
-                            <span class="group-hover:text-white">250 targeted views/day</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"></i>
-                            <span class="group-hover:text-white">4 hours/day AI agent runtime</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"></i>
-                            <span class="group-hover:text-white">Basic analytics dashboard</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pro Plan -->
-                <div class="bg-white rounded-2xl shadow-lg p-8 transform hover:scale-105 hover:bg-indigo-600 hover:shadow-2xl transition-all duration-300 group relative">
-                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                        <span class="bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
-                            Most Popular
-                        </span>
-                    </div>
-                    <div class="text-center mb-8">
-                        <h3 class="text-2xl font-bold mb-4 group-hover:text-white">Pro</h3>
-                        <div class="text-4xl font-bold mb-2 group-hover:text-white">$500<span class="text-lg text-gray-500 group-hover:text-indigo-200">/mo</span></div>
-                        <p class="text-gray-600 group-hover:text-indigo-200">For serious creators</p>
-                        <div class="mt-4 bg-indigo-500 text-white text-sm py-2 px-4 rounded-lg inline-block">
-                            14-day free trial included
-                        </div>
-                    </div>
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"></i>
-                            <span class="group-hover:text-white">10 AI-optimized posts/day</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"></i>
-                            <span class="group-hover:text-white">150 strategic comments/day</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"></i>
-                            <span class="group-hover:text-white">500 curated views/day</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"></i>
-                            <span class="group-hover:text-white">24 hours/day AI agent runtime</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"></i>
-                            <span class="group-hover:text-white">Extended analytics & insights</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"></i>
-                            <span class="group-hover:text-white">Advanced growth suggestions</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Enterprise Plan -->
-                <div class="bg-white rounded-2xl shadow-lg p-8 transform hover:scale-105 hover:bg-indigo-600 hover:shadow-2xl transition-all duration-300 group">
-                    <div class="text-center mb-8">
-                        <h3 class="text-2xl font-bold mb-4 group-hover:text-white">Enterprise</h3>
-                        <div class="text-4xl font-bold mb-2 group-hover:text-white">Custom</div>
-                        <p class="text-gray-600 group-hover:text-indigo-200">For businesses & influencers</p>
-                    </div>
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"></i>
-                            <span class="group-hover:text-white">Customizable posting strategy</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"></i>
-                            <span class="group-hover:text-white">Unlimited daily engagement</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"></i>
-                            <span class="group-hover:text-white">Long-term AI agent availability</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"></i>
-                            <span class="group-hover:text-white">Dedicated account manager</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"></i>
-                            <span class="group-hover:text-white">Custom dashboard setup</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"></i>
-                            <span class="group-hover:text-white">Priority support & training</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-16 gradient-text">
+          Market & Pricing
+        </h2>
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-2xl font-bold mb-4 gradient-text">
+            We provide various Subscription Plan for different targeted users
+          </h2>
         </div>
+
+        <!-- Pricing Cards -->
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Basic Plan -->
+          <div
+            class="bg-white rounded-2xl shadow-lg p-8 transform hover:scale-105 hover:bg-indigo-600 hover:shadow-2xl transition-all duration-300 group"
+          >
+            <div class="text-center mb-8">
+              <h3 class="text-2xl font-bold mb-4 group-hover:text-white">
+                Basic
+              </h3>
+              <div class="text-4xl font-bold mb-2 group-hover:text-white">
+                $99<span
+                  class="text-lg text-gray-500 group-hover:text-indigo-200"
+                  >/mo</span
+                >
+              </div>
+              <p class="text-gray-600 group-hover:text-indigo-200">
+                For personal brand builders
+              </p>
+            </div>
+            <div class="space-y-4 mb-8">
+              <div class="flex items-center">
+                <i
+                  class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"
+                ></i>
+                <span class="group-hover:text-white"
+                  >5 AI-generated posts/day</span
+                >
+              </div>
+              <div class="flex items-center">
+                <i
+                  class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"
+                ></i>
+                <span class="group-hover:text-white"
+                  >75 automated comments/day</span
+                >
+              </div>
+              <div class="flex items-center">
+                <i
+                  class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"
+                ></i>
+                <span class="group-hover:text-white"
+                  >250 targeted views/day</span
+                >
+              </div>
+              <div class="flex items-center">
+                <i
+                  class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"
+                ></i>
+                <span class="group-hover:text-white"
+                  >4 hours/day AI agent runtime</span
+                >
+              </div>
+              <div class="flex items-center">
+                <i
+                  class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"
+                ></i>
+                <span class="group-hover:text-white"
+                  >Basic analytics dashboard</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Pro Plan -->
+          <div
+            class="bg-white rounded-2xl shadow-lg p-8 transform hover:scale-105 hover:bg-indigo-600 hover:shadow-2xl transition-all duration-300 group relative"
+          >
+            <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+              <span
+                class="bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-4 py-1 rounded-full text-sm font-semibold"
+              >
+                Most Popular
+              </span>
+            </div>
+            <div class="text-center mb-8">
+              <h3 class="text-2xl font-bold mb-4 group-hover:text-white">
+                Pro
+              </h3>
+              <div class="text-4xl font-bold mb-2 group-hover:text-white">
+                $500<span
+                  class="text-lg text-gray-500 group-hover:text-indigo-200"
+                  >/mo</span
+                >
+              </div>
+              <p class="text-gray-600 group-hover:text-indigo-200">
+                For serious creators
+              </p>
+              <div
+                class="mt-4 bg-indigo-500 text-white text-sm py-2 px-4 rounded-lg inline-block"
+              >
+                14-day free trial included
+              </div>
+            </div>
+            <div class="space-y-4 mb-8">
+              <div class="flex items-center">
+                <i
+                  class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"
+                ></i>
+                <span class="group-hover:text-white"
+                  >10 AI-optimized posts/day</span
+                >
+              </div>
+              <div class="flex items-center">
+                <i
+                  class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"
+                ></i>
+                <span class="group-hover:text-white"
+                  >150 strategic comments/day</span
+                >
+              </div>
+              <div class="flex items-center">
+                <i
+                  class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"
+                ></i>
+                <span class="group-hover:text-white"
+                  >500 curated views/day</span
+                >
+              </div>
+              <div class="flex items-center">
+                <i
+                  class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"
+                ></i>
+                <span class="group-hover:text-white"
+                  >24 hours/day AI agent runtime</span
+                >
+              </div>
+              <div class="flex items-center">
+                <i
+                  class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"
+                ></i>
+                <span class="group-hover:text-white"
+                  >Extended analytics & insights</span
+                >
+              </div>
+              <div class="flex items-center">
+                <i
+                  class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"
+                ></i>
+                <span class="group-hover:text-white"
+                  >Advanced growth suggestions</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Enterprise Plan -->
+          <div
+            class="bg-white rounded-2xl shadow-lg p-8 transform hover:scale-105 hover:bg-indigo-600 hover:shadow-2xl transition-all duration-300 group"
+          >
+            <div class="text-center mb-8">
+              <h3 class="text-2xl font-bold mb-4 group-hover:text-white">
+                Enterprise
+              </h3>
+              <div class="text-4xl font-bold mb-2 group-hover:text-white">
+                Custom
+              </div>
+              <p class="text-gray-600 group-hover:text-indigo-200">
+                For businesses & influencers
+              </p>
+            </div>
+            <div class="space-y-4 mb-8">
+              <div class="flex items-center">
+                <i
+                  class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"
+                ></i>
+                <span class="group-hover:text-white"
+                  >Customizable posting strategy</span
+                >
+              </div>
+              <div class="flex items-center">
+                <i
+                  class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"
+                ></i>
+                <span class="group-hover:text-white"
+                  >Unlimited daily engagement</span
+                >
+              </div>
+              <div class="flex items-center">
+                <i
+                  class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"
+                ></i>
+                <span class="group-hover:text-white"
+                  >Long-term AI agent availability</span
+                >
+              </div>
+              <div class="flex items-center">
+                <i
+                  class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"
+                ></i>
+                <span class="group-hover:text-white"
+                  >Dedicated account manager</span
+                >
+              </div>
+              <div class="flex items-center">
+                <i
+                  class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"
+                ></i>
+                <span class="group-hover:text-white"
+                  >Custom dashboard setup</span
+                >
+              </div>
+              <div class="flex items-center">
+                <i
+                  class="fas fa-check-circle text-green-500 group-hover:text-white mr-3 text-xl"
+                ></i>
+                <span class="group-hover:text-white"
+                  >Priority support & training</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Team Section -->
     <section class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Our Team</h2>
-            <div class="max-w-2xl mx-auto">
-                <div class="bg-white p-8 rounded-xl shadow-lg text-center">
-                    <img src="https://media.licdn.com/dms/image/v2/C4E03AQGPa-fE0hAM9w/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1635805570581?e=1746662400&v=beta&t=ev9O50zIBPXp1znz3E1odFomYIYjHsvFlqvHWtgvhpc" 
-                         alt="Taoren Pitt" 
-                         class="w-32 h-32 rounded-full mx-auto mb-6 zoomable object-cover">
-                    <h3 class="text-2xl font-bold mb-2">Tempest</h3>
-                    <p class="text-xl text-indigo-600 mb-4">Co-Founder & CEO</p>
-                    <div class="space-y-2 text-gray-600">
-                        <p class="flex items-center justify-center gap-2">
-                            Software Engineer @TikTok
-                            <i class="fab fa-tiktok text-black"></i>
-                        </p>
-                        <p class="flex items-center justify-center gap-2">
-                            FullStack Engineer @Alipay
-                            <i class="fab fa-alipay text-blue-500"></i>
-                        </p>
-                    </div>
-                    <div class="flex justify-center space-x-4 mt-6">
-                        <a href="https://www.linkedin.com/in/taoren-pitt/" class="hover:text-indigo-800">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://tempest.fun/" class="hover:text-indigo-800">
-                            <i class="fas fa-globe"></i>
-                        </a>
-                    </div>
-                </div>
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-16 gradient-text">
+          Our Team
+        </h2>
+        <div class="max-w-2xl mx-auto">
+          <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+            <img
+              src="https://media.licdn.com/dms/image/v2/C4E03AQGPa-fE0hAM9w/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1635805570581?e=1746662400&v=beta&t=ev9O50zIBPXp1znz3E1odFomYIYjHsvFlqvHWtgvhpc"
+              alt="Taoren Pitt"
+              class="w-32 h-32 rounded-full mx-auto mb-6 zoomable object-cover"
+            />
+            <h3 class="text-2xl font-bold mb-2">Tempest</h3>
+            <p class="text-xl text-indigo-600 mb-4">Co-Founder & CEO</p>
+            <div class="space-y-2 text-gray-600">
+              <p class="flex items-center justify-center gap-2">
+                Software Engineer @TikTok
+                <i class="fab fa-tiktok text-black"></i>
+              </p>
+              <p class="flex items-center justify-center gap-2">
+                FullStack Engineer @Alipay
+                <i class="fab fa-alipay text-blue-500"></i>
+              </p>
             </div>
+            <div class="flex justify-center space-x-4 mt-6">
+              <a
+                href="https://www.linkedin.com/in/taoren-pitt/"
+                class="hover:text-indigo-800"
+              >
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="https://tempest.fun/" class="hover:text-indigo-800">
+                <i class="fas fa-globe"></i>
+              </a>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Fund Allocation Section -->
     <section class="py-20 bg-gray-50">
-      <div class="w-full overflow-x-hidden">
+      <!-- <div class="w-full overflow-x-hidden">
           <iframe 
               id="fundAllocationFrame"
               src="./fund_allocation.html" 
@@ -625,174 +1023,954 @@
               scrolling="no"
               title="Fund Allocation Details"
           ></iframe>
+      </div> -->
+      <div class="container mx-auto px-4 py-8">
+        <!-- Header Section -->
+        <div class="text-center mb-8 md:mb-12">
+          <h1 class="text-3xl md:text-4xl font-bold mb-2 gradient-text">
+            InfluAgent Funding Allocation
+          </h1>
+          <p class="text-base md:text-xl mb-1">
+            Strategic Investment Plan for Maximum Efficiency and Growth
+          </p>
+          <p class="text-lg md:text-2xl font-semibold text-blue-600">
+            Total Funding Goal: $1,000,000
+          </p>
+        </div>
+
+        <!-- Main Chart Section -->
+        <div
+          class="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-8 mb-8 md:mb-12"
+        >
+          <!-- Main Pie Chart -->
+          <div
+            class="lg:col-span-1 bg-white p-4 md:p-6 section rounded-xl shadow-lg"
+          >
+            <h2
+              class="text-xl md:text-2xl font-bold mb-1 text-gray-800 text-center"
+            >
+              Fund Allocation Overview
+            </h2>
+            <p class="text-center mb-4 text-gray-600">
+              Total: <span class="font-semibold text-blue-700">$1M</span>
+            </p>
+            <div class="chart-container" style="height: 250px">
+              <canvas id="mainPieChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Key Highlights -->
+          <div
+            class="lg:col-span-2 bg-white p-4 md:p-6 section rounded-xl shadow-lg"
+          >
+            <h2 class="text-xl md:text-2xl font-bold mb-4 text-gray-800">
+              Investment Highlights
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+              <!-- AI Development -->
+              <div class="p-4 bg-blue-50 rounded-xl shadow-md">
+                <div class="flex items-center mb-2">
+                  <div class="bg-blue-500 p-3 rounded-full mr-3">
+                    <i class="fas fa-robot text-white"></i>
+                  </div>
+                  <h3 class="text-lg font-semibold text-blue-800">
+                    AI Agent Development
+                  </h3>
+                </div>
+                <p class="text-blue-700">
+                  Enhancing AI adaptability across platforms and investing in
+                  infrastructure for real-time execution.
+                </p>
+              </div>
+
+              <!-- Team Expansion -->
+              <div class="p-4 bg-purple-50 rounded-xl shadow-md">
+                <div class="flex items-center mb-2">
+                  <div class="bg-purple-500 p-3 rounded-full mr-3">
+                    <i class="fas fa-users text-white"></i>
+                  </div>
+                  <h3 class="text-lg font-semibold text-purple-800">
+                    Team Expansion
+                  </h3>
+                </div>
+                <p class="text-purple-700">
+                  Strategic hiring of 2 AI Engineers, 1 UI/UX Designer, and 1
+                  Sales Professional.
+                </p>
+              </div>
+
+              <!-- Operational Costs -->
+              <div class="p-4 bg-green-50 rounded-xl shadow-md">
+                <div class="flex items-center mb-2">
+                  <div class="bg-green-500 p-3 rounded-full mr-3">
+                    <i class="fas fa-cogs text-white"></i>
+                  </div>
+                  <h3 class="text-lg font-semibold text-green-800">
+                    Operational Costs
+                  </h3>
+                </div>
+                <p class="text-green-700">
+                  Covering infrastructure, compliance, and facilities to ensure
+                  smooth operations.
+                </p>
+              </div>
+
+              <!-- Marketing -->
+              <div class="p-4 bg-yellow-50 rounded-xl shadow-md">
+                <div class="flex items-center mb-2">
+                  <div class="bg-yellow-500 p-3 rounded-full mr-3">
+                    <i class="fas fa-bullhorn text-white"></i>
+                  </div>
+                  <h3 class="text-lg font-semibold text-yellow-800">
+                    Marketing & Acquisition
+                  </h3>
+                </div>
+                <p class="text-yellow-700">
+                  Targeted digital campaigns and partnerships with industry
+                  thought leaders.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Detailed Breakdowns -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+          <!-- AI Development Breakdown -->
+          <div class="bg-white p-6 section rounded-xl shadow-lg">
+            <h2 class="text-2xl font-bold mb-4 text-blue-600">
+              <i class="fas fa-robot mr-2"></i>AI Agent Development (30%)
+            </h2>
+            <div class="chart-container" style="height: 250px">
+              <canvas id="aiChart"></canvas>
+            </div>
+            <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div class="flex items-center">
+                <i class="fas fa-microchip text-blue-500 mr-2"></i>
+                <p class="text-sm text-gray-700">GPU resources & AI services</p>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-database text-blue-500 mr-2"></i>
+                <p class="text-sm text-gray-700">Cloud servers & databases</p>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-brain text-blue-500 mr-2"></i>
+                <p class="text-sm text-gray-700">
+                  Model training & fine-tuning
+                </p>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-certificate text-blue-500 mr-2"></i>
+                <p class="text-sm text-gray-700">Licenses & compliance</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Team Expansion Breakdown -->
+          <div class="bg-white p-6 section rounded-xl shadow-lg">
+            <h2 class="text-2xl font-bold mb-4 text-purple-600">
+              <i class="fas fa-users mr-2"></i>Team Expansion (30%)
+            </h2>
+            <div class="chart-container" style="height: 250px">
+              <canvas id="teamChart"></canvas>
+            </div>
+            <div class="mt-4 space-y-2">
+              <div
+                class="flex items-center justify-between bg-purple-50 p-2 rounded-lg shadow-sm"
+              >
+                <div class="flex items-center">
+                  <i class="fas fa-code text-purple-600 mr-2"></i>
+                  <span class="text-gray-800">AI Engineers</span>
+                </div>
+                <span class="font-semibold">2 Positions</span>
+              </div>
+              <div
+                class="flex items-center justify-between bg-purple-50 p-2 rounded-lg shadow-sm"
+              >
+                <div class="flex items-center">
+                  <i class="fas fa-paint-brush text-purple-600 mr-2"></i>
+                  <span class="text-gray-800">UI/UX Designer</span>
+                </div>
+                <span class="font-semibold">1 Position</span>
+              </div>
+              <div
+                class="flex items-center justify-between bg-purple-50 p-2 rounded-lg shadow-sm"
+              >
+                <div class="flex items-center">
+                  <i class="fas fa-handshake text-purple-600 mr-2"></i>
+                  <span class="text-gray-800">Sales Professional</span>
+                </div>
+                <span class="font-semibold">1 Position</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Operational Costs Breakdown -->
+          <div class="bg-white p-6 section rounded-xl shadow-lg">
+            <h2 class="text-2xl font-bold mb-4 text-green-600">
+              <i class="fas fa-cogs mr-2"></i>Operational Costs (30%)
+            </h2>
+            <div class="chart-container" style="height: 250px">
+              <canvas id="operationsChart"></canvas>
+            </div>
+            <div class="mt-4">
+              <div class="grid grid-cols-2 gap-4">
+                <div class="bg-green-50 p-3 rounded-xl shadow-md">
+                  <div class="flex items-center">
+                    <i class="fas fa-server text-green-600 mr-2"></i>
+                    <h4 class="font-semibold">Infrastructure</h4>
+                  </div>
+                  <p class="text-sm text-gray-700 mt-1">
+                    GPUs, Servers & Databases
+                  </p>
+                </div>
+                <div class="bg-green-50 p-3 rounded-xl shadow-md">
+                  <div class="flex items-center">
+                    <i class="fas fa-balance-scale text-green-600 mr-2"></i>
+                    <h4 class="font-semibold">Legal & Compliance</h4>
+                  </div>
+                  <p class="text-sm text-gray-700 mt-1">
+                    Regulations & Privacy
+                  </p>
+                </div>
+                <div class="bg-green-50 p-3 rounded-xl shadow-md col-span-2">
+                  <div class="flex items-center">
+                    <i class="fas fa-building text-green-600 mr-2"></i>
+                    <h4 class="font-semibold">Office Space</h4>
+                  </div>
+                  <p class="text-sm text-gray-700 mt-1">
+                    Workspace & administrative overhead
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Marketing Breakdown -->
+          <div class="bg-white p-6 section rounded-xl shadow-lg">
+            <h2 class="text-2xl font-bold mb-4 text-yellow-600">
+              <i class="fas fa-bullhorn mr-2"></i>Marketing & Acquisition (10%)
+            </h2>
+            <div class="chart-container" style="height: 250px">
+              <canvas id="marketingChart"></canvas>
+            </div>
+            <div class="mt-4 space-y-2">
+              <div
+                class="flex items-center p-2 bg-yellow-50 rounded-lg shadow-sm"
+              >
+                <i class="fas fa-ad text-yellow-600 mr-2"></i>
+                <p class="text-sm text-gray-700">
+                  Digital marketing campaigns targeting SMBs and startups
+                </p>
+              </div>
+              <div
+                class="flex items-center p-2 bg-yellow-50 rounded-lg shadow-sm"
+              >
+                <i class="fas fa-users text-yellow-600 mr-2"></i>
+                <p class="text-sm text-gray-700">
+                  Partnerships with industry KOLs and thought leaders
+                </p>
+              </div>
+              <div
+                class="flex items-center p-2 bg-yellow-50 rounded-lg shadow-sm"
+              >
+                <i class="fas fa-search text-yellow-600 mr-2"></i>
+                <p class="text-sm text-gray-700">
+                  SEO-driven inbound marketing and community building
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Return on Investment Section -->
+        <div class="bg-white p-6 mb-12 section rounded-xl shadow-lg">
+          <h2 class="text-2xl font-bold mb-4 text-gray-800">
+            Where the Money Will Get Us
+          </h2>
+
+          <!-- Growth Chart -->
+          <div class="mb-8">
+            <div class="chart-container" style="height: 400px !important">
+              <canvas id="growthChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Metrics Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-blue-50 p-4 rounded-xl shadow-md">
+              <div class="text-2xl font-bold text-blue-600 mb-2">
+                <i class="fas fa-rocket mr-2"></i>
+                <span class="text-lg">Revenue Growth</span>
+              </div>
+              <ul class="text-sm text-gray-700 space-y-2">
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                  <span>5000 paying users in first year</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                  <span>$10.75M ARR by the end of Year 1</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                  <span>30,000+ paying users within 24 months</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                  <span>$72M ARR by the end of Year 2</span>
+                </li>
+              </ul>
+            </div>
+            <div class="bg-purple-50 p-4 rounded-xl shadow-md">
+              <div class="text-2xl font-bold text-purple-600 mb-2">
+                <i class="fas fa-chart-line mr-2"></i>
+                <span class="text-lg">Series A Ready</span>
+              </div>
+              <ul class="text-sm text-gray-700 space-y-2">
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-purple-500 mt-1 mr-2"></i>
+                  <span>Low churn rate (<25%)</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-purple-500 mt-1 mr-2"></i>
+                  <span>$72M ARR by the end of Year 2</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-purple-500 mt-1 mr-2"></i>
+                  <span>Position for $100M-$125M Series A</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-purple-500 mt-1 mr-2"></i>
+                  <span>260K users & $572M ARR by year 5</span>
+                </li>
+              </ul>
+            </div>
+            <div class="bg-green-50 p-4 rounded-xl shadow-md">
+              <div class="text-2xl font-bold text-green-600 mb-2">
+                <i class="fas fa-cog mr-2"></i>
+                <span class="text-lg">Scalability</span>
+              </div>
+              <ul class="text-sm text-gray-700 space-y-2">
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                  <span>GPU/cloud infrastructure</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                  <span>AI-optimized operations</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                  <span>Expand to new verticals</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                  <span>Global market readiness</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="mt-6 p-4 bg-gray-50 rounded-xl shadow-md">
+            <h3 class="font-semibold text-gray-800 mb-2 flex items-center">
+              <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
+              Product Roadmap
+            </h3>
+            <p class="text-gray-700 mb-2">
+              Our initial focus is developing a fully functional AI social media
+              agent optimized for Twitter (X), with a user-friendly dashboard
+              providing AI-assisted growth insights. Starting with 10 users in
+              Q1, we aim to reach 5000 paying users by the end of Year 1 through
+              strategic growth initiatives.
+            </p>
+            <p class="text-gray-700">
+              Through strategic fund allocation and lean operations, we'll
+              establish product-market fit, achieve consistent user growth with
+              low churn (<25%), and scale to 30,000+ users and $72M ARR by the
+              end of Year 2. This strong growth trajectory and proven unit
+              economics will position InfluAgent favorably for a Series A round
+              in the $100M-$125M range, enabling us to accelerate growth to
+              260,000 users and $572M ARR by the end of year 5.
+            </p>
+          </div>
+          <div
+            class="mt-4 p-4 bg-yellow-50 border-l-4 border-yellow-500 rounded-xl shadow-md"
+          >
+            <h3 class="font-semibold text-gray-800 mb-2 flex items-center">
+              <i class="fas fa-exclamation-triangle text-yellow-500 mr-2"></i>
+              Disclaimer
+            </h3>
+            <p class="text-gray-700 text-sm mb-2">
+              The figures for Paying Users and Estimated ARR/MRR provided above
+              are based on current AI SaaS market trends and common industry
+              assumptions. These estimates are intended as a reasonable
+              reference range only, and actual performance may vary due to
+              product iterations, market competition, user feedback, and other
+              factors.They should not be construed as a guarantee or commitment
+              to future results.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-2xl font-bold mb-6">Ready to Transform Your Social Media Presence?</h2>
-            <a href="mailto:tempest.ren@tiktok.com" class="inline-block bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition">
-                Contact Us Now
-            </a>
-            <div class="mt-8 text-gray-400">
-                <p>© 2024 AGI Studio. All rights reserved.</p>
-            </div>
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="text-2xl font-bold mb-6">
+          Ready to Transform Your Social Media Presence?
+        </h2>
+        <a
+          href="mailto:tempest.ren@tiktok.com"
+          class="inline-block bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition"
+        >
+          Contact Us Now
+        </a>
+        <div class="mt-8 text-gray-400">
+          <p>© 2024 AGI Studio. All rights reserved.</p>
         </div>
+      </div>
     </footer>
 
     <script>
-        // Show confidentiality modal on page load
-        window.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('confidentialityModal').classList.remove('hidden');
-            document.body.classList.add('overflow-hidden');
-        });
+      // Show confidentiality modal on page load
+      window.addEventListener('DOMContentLoaded', function () {
+        document
+          .getElementById('confidentialityModal')
+          .classList.remove('hidden')
+        document.body.classList.add('overflow-hidden')
+      })
 
-        // Modal functionality
-        const modal = document.getElementById('imageModal');
-        const modalImg = document.getElementById('modalImage');
-        const closeBtn = document.getElementsByClassName('close')[0];
+      // Modal functionality
+      const modal = document.getElementById('imageModal')
+      const modalImg = document.getElementById('modalImage')
+      const closeBtn = document.getElementsByClassName('close')[0]
 
-        // Add click event to all zoomable images
-        document.querySelectorAll('.zoomable').forEach(img => {
-            img.onclick = function() {
-                modal.style.display = 'flex';
-                modalImg.src = this.src;
-                modalImg.style.maxHeight = '90vh';
-                modalImg.style.objectFit = 'contain';
+      // Add click event to all zoomable images
+      document.querySelectorAll('.zoomable').forEach(img => {
+        img.onclick = function () {
+          modal.style.display = 'flex'
+          modalImg.src = this.src
+          modalImg.style.maxHeight = '90vh'
+          modalImg.style.objectFit = 'contain'
+        }
+      })
+
+      // Close modal when clicking the × button
+      closeBtn.onclick = function () {
+        modal.style.display = 'none'
+      }
+
+      // Close modal when clicking outside the image
+      modal.onclick = function (event) {
+        if (event.target === modal) {
+          modal.style.display = 'none'
+        }
+      }
+
+      // Close modal when pressing ESC key
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          modal.style.display = 'none'
+        }
+      })
+
+      // Add event listeners for confidentiality modal
+      document
+        .querySelectorAll('[onclick*="confidentialityModal"]')
+        .forEach(element => {
+          element.onclick = function () {
+            const modal = document.getElementById('confidentialityModal')
+            if (modal.classList.contains('hidden')) {
+              modal.classList.remove('hidden')
+              document.body.classList.add('overflow-hidden')
+            } else {
+              modal.classList.add('hidden')
+              document.body.classList.remove('overflow-hidden')
             }
-        });
+          }
+        })
 
-        // Close modal when clicking the × button
-        closeBtn.onclick = function() {
-            modal.style.display = 'none';
+      // Carousel functionality
+      document.addEventListener('DOMContentLoaded', function () {
+        const track = document.querySelector('.carousel-track')
+        const slides = document.querySelectorAll('.carousel-slide')
+        const dots = document.querySelectorAll('.carousel-dot')
+
+        let currentIndex = 0
+        const slideCount = slides.length
+
+        // Initialize first dot as active
+        dots[0].classList.add('bg-indigo-600')
+
+        function updateCarousel() {
+          // Update track position
+          track.style.transform = `translateX(-${currentIndex * 100}%)`
+
+          // Update dots
+          dots.forEach((dot, index) => {
+            if (index === currentIndex) {
+              dot.classList.remove('bg-gray-300')
+              dot.classList.add('bg-indigo-600')
+            } else {
+              dot.classList.remove('bg-indigo-600')
+              dot.classList.add('bg-gray-300')
+            }
+          })
         }
 
-        // Close modal when clicking outside the image
-        modal.onclick = function(event) {
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
+        // Dot navigation
+        dots.forEach((dot, index) => {
+          dot.addEventListener('click', () => {
+            currentIndex = index
+            updateCarousel()
+          })
+        })
+
+        // Auto advance slides
+        let autoAdvance = setInterval(nextSlide, 5000)
+
+        function nextSlide() {
+          currentIndex = (currentIndex + 1) % slideCount
+          updateCarousel()
         }
 
-        // Close modal when pressing ESC key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                modal.style.display = 'none';
-            }
-        });
+        // Pause auto-advance on hover
+        const carouselContainer = document.querySelector('.carousel-container')
+        carouselContainer.addEventListener('mouseenter', () => {
+          clearInterval(autoAdvance)
+        })
 
-        // Add event listeners for confidentiality modal
-        document.querySelectorAll('[onclick*="confidentialityModal"]').forEach(element => {
-            element.onclick = function() {
-                const modal = document.getElementById('confidentialityModal');
-                if (modal.classList.contains('hidden')) {
-                    modal.classList.remove('hidden');
-                    document.body.classList.add('overflow-hidden');
-                } else {
-                    modal.classList.add('hidden');
-                    document.body.classList.remove('overflow-hidden');
+        carouselContainer.addEventListener('mouseleave', () => {
+          autoAdvance = setInterval(nextSlide, 5000)
+        })
+
+        // Add touch support
+        let touchStartX = 0
+        let touchEndX = 0
+
+        carouselContainer.addEventListener('touchstart', e => {
+          touchStartX = e.touches[0].clientX
+        })
+
+        carouselContainer.addEventListener('touchend', e => {
+          touchEndX = e.changedTouches[0].clientX
+          handleSwipe()
+        })
+
+        function handleSwipe() {
+          const swipeThreshold = 50
+          const diff = touchStartX - touchEndX
+
+          if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+              currentIndex = (currentIndex + 1) % slideCount
+            } else {
+              currentIndex = (currentIndex - 1 + slideCount) % slideCount
+            }
+            updateCarousel()
+          }
+        }
+      })
+
+      // Register Chart.js plugin
+      Chart.register(ChartDataLabels)
+
+      // Calculate MRR based on user count
+      function calculateMRR(userCount) {
+        // Basic:Pro ratio is 4:1
+        // For every 10 users: 8 Basic ($99/mo) + 2 Pro ($500/mo)
+        const avgRevenuePerUser = 179.2 // (8 * 99 + 2 * 500) / 10
+        return Math.ceil((userCount * avgRevenuePerUser) / 1000) // Convert to $K and round up
+      }
+
+      // Growth data
+      const payingUsers = [
+        // Year 1 (2x growth per quarter)
+        10, 100, 1000, 5000,
+        // Year 2 (1.5x growth per quarter)
+        10000, 15000, 22500, 33750,
+        // Year 3 (1.3x growth per quarter)
+        50625, 75900, 114000, 125300,
+        // Year 4 (1.2x growth per quarter)
+        137800, 151600, 166800, 183400,
+        // Year 5 (1.15x growth per quarter)
+        200000, 220000, 242000, 266200
+      ]
+      const mrrData = payingUsers.map(calculateMRR)
+
+      // Generate quarter labels for 5 years
+      const quarterLabels = Array.from({ length: 20 }, (_, i) => {
+        const year = Math.floor(i / 4) + 1
+        const quarter = (i % 4) + 1
+        return `Y${year}Q${quarter}`
+      })
+
+      // Main Pie Chart
+      const mainCtx = document.getElementById('mainPieChart').getContext('2d')
+      const mainPieChart = new Chart(mainCtx, {
+        type: 'pie',
+        data: {
+          labels: [
+            'AI Agent Development',
+            'Team Expansion',
+            'Operational Costs',
+            'Marketing & Acquisition'
+          ],
+          datasets: [
+            {
+              data: [30, 30, 30, 10],
+              backgroundColor: [
+                'rgba(59, 130, 246, 0.8)',
+                'rgba(139, 92, 246, 0.8)',
+                'rgba(16, 185, 129, 0.8)',
+                'rgba(245, 158, 11, 0.8)'
+              ],
+              borderColor: [
+                'rgba(59, 130, 246, 1)',
+                'rgba(139, 92, 246, 1)',
+                'rgba(16, 185, 129, 1)',
+                'rgba(245, 158, 11, 1)'
+              ],
+              borderWidth: 1
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            datalabels: {
+              color: '#fff',
+              font: {
+                weight: 'bold',
+                size: 16
+              },
+              formatter: function (value) {
+                return value + '%'
+              }
+            },
+            legend: {
+              position: 'right',
+              labels: {
+                font: {
+                  size: 14
                 }
-            }
-        });
-
-        // Listen for messages from the iframe
-        window.addEventListener('message', function(event) {
-          if (event.data.type === 'resize') {
-            const iframe = document.getElementById('fundAllocationFrame');
-            if (iframe) {
-              // Validate and set a reasonable height
-              const newHeight = Math.min(Math.max(event.data.height + 40, 2000), 6000);
-              // Only update if height has changed significantly (more than 10px)
-              const currentHeight = parseInt(iframe.style.height);
-              if (Math.abs(currentHeight - newHeight) > 10) {
-                iframe.style.height = newHeight + 'px';
+              }
+            },
+            tooltip: {
+              callbacks: {
+                label: function (context) {
+                  return `${context.label}: ${context.raw}%`
+                }
               }
             }
           }
-        });
+        }
+      })
 
-        // Carousel functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const track = document.querySelector('.carousel-track');
-            const slides = document.querySelectorAll('.carousel-slide');
-            const dots = document.querySelectorAll('.carousel-dot');
-            
-            let currentIndex = 0;
-            const slideCount = slides.length;
-            
-            // Initialize first dot as active
-            dots[0].classList.add('bg-indigo-600');
-            
-            function updateCarousel() {
-                // Update track position
-                track.style.transform = `translateX(-${currentIndex * 100}%)`;
-                
-                // Update dots
-                dots.forEach((dot, index) => {
-                    if (index === currentIndex) {
-                        dot.classList.remove('bg-gray-300');
-                        dot.classList.add('bg-indigo-600');
-                    } else {
-                        dot.classList.remove('bg-indigo-600');
-                        dot.classList.add('bg-gray-300');
-                    }
-                });
+      // AI Development Breakdown
+      const aiCtx = document.getElementById('aiChart').getContext('2d')
+      const aiChart = new Chart(aiCtx, {
+        type: 'doughnut',
+        data: {
+          labels: [
+            'Infrastructure & Tools',
+            'Model Training',
+            'Cloud Computing',
+            'Licenses & Compliance'
+          ],
+          datasets: [
+            {
+              data: [40, 30, 20, 10],
+              backgroundColor: [
+                'rgba(59, 130, 246, 0.8)',
+                'rgba(96, 165, 250, 0.8)',
+                'rgba(147, 197, 253, 0.8)',
+                'rgba(191, 219, 254, 0.8)'
+              ],
+              borderWidth: 1
             }
-            
-            // Dot navigation
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    currentIndex = index;
-                    updateCarousel();
-                });
-            });
-            
-            // Auto advance slides
-            let autoAdvance = setInterval(nextSlide, 5000);
-            
-            function nextSlide() {
-                currentIndex = (currentIndex + 1) % slideCount;
-                updateCarousel();
-            }
-            
-            // Pause auto-advance on hover
-            const carouselContainer = document.querySelector('.carousel-container');
-            carouselContainer.addEventListener('mouseenter', () => {
-                clearInterval(autoAdvance);
-            });
-            
-            carouselContainer.addEventListener('mouseleave', () => {
-                autoAdvance = setInterval(nextSlide, 5000);
-            });
-            
-            // Add touch support
-            let touchStartX = 0;
-            let touchEndX = 0;
-            
-            carouselContainer.addEventListener('touchstart', (e) => {
-                touchStartX = e.touches[0].clientX;
-            });
-            
-            carouselContainer.addEventListener('touchend', (e) => {
-                touchEndX = e.changedTouches[0].clientX;
-                handleSwipe();
-            });
-            
-            function handleSwipe() {
-                const swipeThreshold = 50;
-                const diff = touchStartX - touchEndX;
-                
-                if (Math.abs(diff) > swipeThreshold) {
-                    if (diff > 0) {
-                        currentIndex = (currentIndex + 1) % slideCount;
-                    } else {
-                        currentIndex = (currentIndex - 1 + slideCount) % slideCount;
-                    }
-                    updateCarousel();
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: {
+                font: {
+                  size: 12
                 }
+              }
             }
-        });
+          }
+        }
+      })
+
+      // Team Expansion Breakdown
+      const teamCtx = document.getElementById('teamChart').getContext('2d')
+      const teamChart = new Chart(teamCtx, {
+        type: 'bar',
+        data: {
+          labels: [
+            'AI Engineers',
+            'UI/UX Designer',
+            'Sales Professional',
+            'AI Support Services'
+          ],
+          datasets: [
+            {
+              label: 'Allocation',
+              data: [50, 20, 20, 10],
+              backgroundColor: 'rgba(139, 92, 246, 0.7)',
+              borderColor: 'rgba(139, 92, 246, 1)',
+              borderWidth: 1
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 100,
+              ticks: {
+                callback: function (value) {
+                  return value + '%'
+                }
+              }
+            }
+          }
+        }
+      })
+
+      // Operational Costs Breakdown
+      const opsCtx = document.getElementById('operationsChart').getContext('2d')
+      const operationsChart = new Chart(opsCtx, {
+        type: 'polarArea',
+        data: {
+          labels: ['AI Infrastructure', 'Legal & Regulatory', 'Office Space'],
+          datasets: [
+            {
+              data: [50, 25, 25],
+              backgroundColor: [
+                'rgba(16, 185, 129, 0.7)',
+                'rgba(5, 150, 105, 0.7)',
+                'rgba(110, 231, 183, 0.7)'
+              ],
+              borderWidth: 1
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'bottom'
+            }
+          }
+        }
+      })
+
+      // Marketing Breakdown
+      const marketingCtx = document
+        .getElementById('marketingChart')
+        .getContext('2d')
+      const marketingChart = new Chart(marketingCtx, {
+        type: 'radar',
+        data: {
+          labels: ['Digital Campaigns', 'KOL Partnerships', 'SEO & Inbound'],
+          datasets: [
+            {
+              label: 'Focus Level',
+              data: [40, 35, 25],
+              backgroundColor: 'rgba(245, 158, 11, 0.2)',
+              borderColor: 'rgba(245, 158, 11, 1)',
+              borderWidth: 2,
+              pointBackgroundColor: 'rgba(245, 158, 11, 1)'
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            r: {
+              angleLines: {
+                display: true
+              },
+              suggestedMin: 0,
+              suggestedMax: 50
+            }
+          }
+        }
+      })
+
+      // Growth Projection Chart
+      const growthCtx = document.getElementById('growthChart').getContext('2d')
+      const growthChart = new Chart(growthCtx, {
+        type: 'line',
+        data: {
+          labels: quarterLabels,
+          datasets: [
+            {
+              label: 'MRR ($K)',
+              data: mrrData,
+              borderColor: 'rgba(37, 99, 235, 1)',
+              backgroundColor: 'rgba(37, 99, 235, 0.1)',
+              fill: true,
+              tension: 0.4,
+              yAxisID: 'y'
+            },
+            {
+              label: 'Paying Users',
+              data: payingUsers,
+              borderColor: 'rgba(16, 185, 129, 1)',
+              backgroundColor: 'rgba(16, 185, 129, 0.1)',
+              borderDash: [5, 5],
+              fill: false,
+              tension: 0.4,
+              yAxisID: 'y1'
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            title: {
+              display: true,
+              text: 'Projected Growth (5 Years)',
+              font: {
+                size: 16,
+                weight: 'bold'
+              },
+              padding: {
+                bottom: 30
+              }
+            },
+            tooltip: {
+              callbacks: {
+                label: function (context) {
+                  if (context.dataset.label === 'MRR ($K)') {
+                    const value = context.raw
+                    return value >= 1000
+                      ? `MRR: $${(value / 1000).toFixed(1)}M`
+                      : `MRR: $${value}K`
+                  }
+                  return `Paying Users: ${context.raw}`
+                }
+              }
+            },
+            datalabels: {
+              color: function (context) {
+                return context.dataset.label === 'MRR ($K)'
+                  ? 'rgba(37, 99, 235, 1)'
+                  : 'rgba(16, 185, 129, 1)'
+              },
+              font: {
+                weight: 'bold',
+                size: 8
+              },
+              padding: 3,
+              backgroundColor: 'white',
+              borderRadius: 1,
+              anchor: function (context) {
+                return context.dataset.label === 'MRR ($K)' ? 'end' : 'start'
+              },
+              align: function (context) {
+                return context.dataset.label === 'MRR ($K)' ? 'bottom' : 'top'
+              },
+              formatter: function (value, context) {
+                if (context.dataset.label === 'MRR ($K)') {
+                  return value >= 1000
+                    ? '$' + (value / 1000).toFixed(1) + 'M'
+                    : '$' + value + 'K'
+                }
+                return value
+              },
+              offset: 8,
+              display: function (context) {
+                return context.dataIndex % 2 === 0
+              }
+            }
+          },
+          scales: {
+            y: {
+              type: 'linear',
+              display: true,
+              position: 'left',
+              title: {
+                display: true,
+                text: 'MRR ($K)',
+                font: {
+                  size: 14,
+                  weight: 'bold'
+                },
+                padding: {
+                  bottom: 10
+                }
+              },
+              ticks: {
+                color: 'rgba(37, 99, 235, 0.8)',
+                font: {
+                  size: 12,
+                  weight: 'bold'
+                },
+                padding: 10
+              },
+              beginAtZero: true
+            },
+            y1: {
+              type: 'linear',
+              display: true,
+              position: 'right',
+              title: {
+                display: true,
+                text: 'Paying Users',
+                font: {
+                  size: 14,
+                  weight: 'bold'
+                },
+                padding: {
+                  bottom: 10
+                }
+              },
+              ticks: {
+                color: 'rgba(16, 185, 129, 0.8)',
+                font: {
+                  size: 12,
+                  weight: 'bold'
+                },
+                padding: 10
+              },
+              beginAtZero: true,
+              grid: {
+                drawOnChartArea: false
+              }
+            },
+            x: {
+              ticks: {
+                font: {
+                  size: 12,
+                  weight: 'bold'
+                },
+                padding: 10
+              }
+            }
+          }
+        }
+      })
     </script>
-</body>
+  </body>
 </html>

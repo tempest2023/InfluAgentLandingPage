@@ -19,7 +19,7 @@ export default function Hero() {
                 Achieve success in social growth with the help of a fully managed AI Agent. Hire your 24/7 AI marketing
                 expert to increase your influence across platforms.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mb-12 sm:mb-0">
                 <Button 
                   size="lg" 
                   onClick={openWaitlist}
@@ -43,7 +43,7 @@ export default function Hero() {
               </div>
             </div>
           </div>
-          <div className="md:w-1/2 relative">
+          <div className="md:w-1/2 relative pt-8 md:pt-0">
             <div className="relative z-10">
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-400 to-purple-500 rounded-lg transform rotate-6 shadow-lg opacity-75 blur-lg"></div>
               <div className="relative bg-white p-2 rounded-lg shadow-xl transform hover:scale-[1.02] transition-transform duration-300">
@@ -57,7 +57,7 @@ export default function Hero() {
                 />
               </div>
             </div>
-            <div className="absolute -bottom-12 -right-6 md:right-0 w-48 h-96 z-20">
+            <div className="absolute -bottom-12 -right-6 md:right-0 w-36 sm:w-48 h-72 sm:h-96 z-20">
               <div className="relative w-full h-full">
                 <Image
                   src="/InfluAgentMobileDesign/MobileDesign/Home.png"

@@ -25,18 +25,18 @@ export default function WaitlistModal() {
 
   return (
     <Dialog open={isOpen} onOpenChange={closeWaitlist}>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="w-[90%] md:w-[60%] max-w-screen-lg mx-auto p-4 md:p-6">
         <DialogHeader>
-          <DialogTitle>Join InfluAgent Beta Testing Program</DialogTitle>
-          <DialogDescription>
+          <DialogTitle className="text-xl md:text-2xl">Join InfluAgent Beta Testing Program</DialogTitle>
+          <DialogDescription className="text-sm md:text-base">
             We are offering exclusive access to selected users
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div className="space-y-4">
-            <div className="bg-blue-50 p-4 rounded-lg">
-              <h4 className="font-semibold mb-2">Beta Testing Program</h4>
-              <ul className="text-sm space-y-3">
+            <div className="bg-blue-50 p-3 md:p-4 rounded-lg">
+              <h4 className="font-semibold mb-2 text-sm md:text-base">Beta Testing Program</h4>
+              <ul className="text-xs md:text-sm space-y-2 md:space-y-3">
                 <li className="flex items-start space-x-2">
                   <Check className="w-5 h-5 text-blue-500 mt-0.5" />
                   <span>Early access to new features</span>

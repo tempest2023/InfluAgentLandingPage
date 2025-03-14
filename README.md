@@ -112,3 +112,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## More Features TODO List
 - Integrate with Supabase to insert Waitlist info into database [DONE]
+- Fix Dark Mode Background Color & UI

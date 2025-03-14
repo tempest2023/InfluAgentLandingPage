@@ -36,16 +36,16 @@ const teamMembers = [
   //   linkedin: "https://www.linkedin.com/in/lyra-product/",
   //   website: "https://lyrapm.com/",
   // },
-  {
-    name: "Atlas",
-    role: "Head of Business & Strategy",
-    bio: "Seasoned entrepreneur and former VC investor with deep experience in AI and Web3 startups. Previously led growth initiatives at Tesla, scaling innovative projects to global markets. Expert in fundraising, partnerships, and go-to-market strategy.",
-    experience: ["Growth & Strategy Lead @Tesla", "Investor @Sequoia Capital"],
-  },
+  // {
+  //   name: "Atlas",
+  //   role: "Head of Business & Strategy",
+  //   bio: "Seasoned entrepreneur and former VC investor with deep experience in AI and Web3 startups. Previously led growth initiatives at Tesla, scaling innovative projects to global markets. Expert in fundraising, partnerships, and go-to-market strategy.",
+  //   experience: ["Growth & Strategy Lead @Tesla", "Investor @Sequoia Capital"],
+  // },
   {
     name: "Join us as a Co-Founder",
     role: "",
-    bio: "We are looking for a co-founder who is passionate about AGI and has a strong background in Business & Finance, or UI/UX design & Product Design, or Software Engineering & FullStack Development.",
+    bio: "We are looking for co-founders who is passionate about AGI and has a strong background in Business & Finance, or UI/UX design & Product Design, or Software Engineering & FullStack Development.",
     experience: ["Business & Financial Expert", "UI/UX Design & Product Design Expert", "FullStack AI Expert"],
     website: "mailto:tempest.ren@tiktok.com",
     email: "tempest.ren@tiktok.com"

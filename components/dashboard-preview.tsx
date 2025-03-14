@@ -80,12 +80,13 @@ function AppPreview() {
                 transform: `translateX(${(index - currentIndex) * 100}%)`,
               }}
             >
-              <div className="relative w-full h-full">
+              <div className="relative w-full h-full rounded-md">
                 <Image
                   src={image.src}
                   alt={image.alt}
-                  fill
-                  className="object-contain"
+                  className="object-contain rounded-md"
+                  width={1536}
+                  height={1200}
                   sizes="(max-width: 1536px) 90vw, 1200px"
                   priority={index === 0}
                 />
@@ -94,7 +95,7 @@ function AppPreview() {
           ))}
         </div>
         {/* Dot Navigation */}
-        <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-2">
+        <div className="absolute bottom-[2.5em] left-0 right-0 flex justify-center gap-2">
           {mobileImages.map((_, index) => (
             <button
               key={index}
@@ -228,8 +229,8 @@ export default function DashboardPreview() {
                   transform: imageStates[index].position === 'transitioning'
                     ? 'translate3d(100%, -100%, -1000px) rotate3d(1, 1, 0.2, 45deg)'
                     : imageStates[index].position === 'front'
-                      ? 'translate3d(0%, -2%, 0) rotate3d(1, -0.5, 0.15, 25deg) scale(0.95)'
-                      : 'translate3d(0%, -2%, -500px) rotate3d(1, -0.5, 0.15, 25deg) scale(0.85)',
+                      ? 'translate3d(0%, -2%, 0) rotate3d(1, -0.5, 0.15, 0deg) scale(0.95)'
+                      : 'translate3d(0%, -2%, -500px) rotate3d(1, -0.5, 0.15, 0deg) scale(0.85)',
                   zIndex: imageStates[index].zIndex,
                   opacity: imageStates[index].position === 'transitioning' ? 0.7 : 1,
                   transformOrigin: '50% 50%',

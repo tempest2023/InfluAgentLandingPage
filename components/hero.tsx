@@ -15,7 +15,7 @@ export default function Hero() {
               <h1 className="text-5xl md:text-[4rem] font-bold text-gray-900 mb-10 leading-tight">
                 Revolutionize Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Social Media</span> with AI
               </h1>
-              <p className="text-2xl md:text-xl text-gray-600 mb-12 leading-relaxed">
+              <p className="text-xl md:text-xl text-gray-600 mb-12 leading-relaxed">
                 Achieve success in social growth with the help of a fully managed AI Agent. Hire your 24/7 AI marketing
                 expert to increase your influence across platforms.
               </p>

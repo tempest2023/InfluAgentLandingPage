@@ -174,9 +174,9 @@ export default function Testimonial() {
   }, [])
 
   return (
-    <section id="testimonial" className="py-12 md:py-20 bg-gray-50 overflow-hidden">
+    <section id="testimonial" className="py-12 md:py-20 bg-gradient-to-b from-white to-blue-100 dark:from-[hsl(0,0%,3.9%)] dark:to-[hsl(221,83%,20%)]">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">What Our Users Say</h2>
+        <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">What Our Users Say</h2>
         <div ref={containerRef} className="relative">
           <div 
             ref={scrollRef} 
@@ -185,7 +185,7 @@ export default function Testimonial() {
             {testimonials.map((testimonial, index) => (
               <div 
                 key={index} 
-                className="flex-shrink-0 w-80 bg-white rounded-lg shadow-lg p-6 transform transition-transform hover:scale-105"
+                className="flex-shrink-0 w-80 bg-white dark:bg-gray-600 rounded-lg shadow-lg p-6 transform transition-transform hover:scale-105"
               >
                 <div className="flex items-center mb-4">
                   <Image
@@ -196,11 +196,11 @@ export default function Testimonial() {
                     className="rounded-full mr-4"
                   />
                   <div>
-                    <p className="font-semibold text-gray-900">{testimonial.name}</p>
-                    <p className="text-sm text-gray-600">{testimonial.role}</p>
+                    <p className="font-semibold text-gray-900 dark:text-white">{testimonial.name}</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">{testimonial.role}</p>
                   </div>
                 </div>
-                <p className="text-gray-600 mb-4">"{testimonial.quote}"</p>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">"{testimonial.quote}"</p>
                 <div className="flex">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />

@@ -9,15 +9,12 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
+        default: "bg-primary text-primary-foreground hover:bg-primary-hover active:bg-primary-active dark:bg-primary-dark dark:text-primary-dark-foreground dark:hover:bg-primary-dark-hover dark:active:bg-primary-dark-active",
+        outline: "border-2 border-primary text-primary hover:bg-primary hover:bg-primary-active active:bg-primary-active dark:border-primary-dark dark:text-primary-dark dark:hover:bg-primary-dark dark:hover:text-primary-dark-foreground dark:active:bg-primary-dark-active",
+        ghost: "hover:bg-accent hover:text-accent-foreground active:bg-accent-active dark:hover:bg-accent-dark dark:hover:text-accent-dark-foreground dark:active:bg-accent-dark-active",
+        link: "text-primary underline-offset-4 hover:underline active:text-primary-active dark:text-primary-dark dark:active:text-primary-dark-active",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary-hover active:bg-secondary-active dark:bg-secondary-dark dark:text-secondary-dark-foreground dark:hover:bg-secondary-dark-hover dark:active:bg-secondary-dark-active",
+        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive-hover active:bg-destructive-active dark:bg-destructive-dark dark:text-destructive-dark-foreground dark:hover:bg-destructive-dark-hover dark:active:bg-destructive-dark-active",
       },
       size: {
         default: "h-10 px-4 py-2",

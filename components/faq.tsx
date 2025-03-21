@@ -29,26 +29,26 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section id="faq" className="py-12 md:py-20 bg-white">
+    <section id="faq" className="py-12 md:py-20 bg-gradient-to-b from-white to-blue-100 dark:from-[hsl(0,0%,3.9%)] dark:to-[hsl(221,83%,20%)]">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">Frequently Asked Questions</h2>
+        <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">Frequently Asked Questions</h2>
         <div className="max-w-3xl mx-auto">
           {faqs.map((faq, index) => (
             <div key={index} className="mb-4">
               <button
-                className="flex justify-between items-center w-full text-left p-4 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-200"
+                className="flex justify-between items-center w-full text-left p-4 rounded-lg bg-white dark:bg-gray-900 hover:bg-[hsl(0,0%,98%)] dark:hover:bg-[hsl(0,0%,7%)] transition-colors duration-200"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
               >
-                <span className="text-lg font-semibold text-gray-900">{faq.question}</span>
+                <span className="text-lg font-semibold text-gray-900 dark:text-white">{faq.question}</span>
                 {openIndex === index ? (
-                  <ChevronUp className="w-5 h-5 text-gray-600" />
+                  <ChevronUp className="w-5 h-5 text-gray-600 dark:text-gray-400" />
                 ) : (
-                  <ChevronDown className="w-5 h-5 text-gray-600" />
+                  <ChevronDown className="w-5 h-5 text-gray-600 dark:text-gray-400" />
                 )}
               </button>
               {openIndex === index && (
-                <div className="mt-2 p-4 bg-white rounded-lg">
-                  <p className="text-gray-600">{faq.answer}</p>
+                <div className="mt-2 p-4 bg-white dark:bg-[hsl(0,0%,3.9%)] rounded-lg">
+                  <p className="text-gray-600 dark:text-gray-300">{faq.answer}</p>
                 </div>
               )}
             </div>

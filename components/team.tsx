@@ -54,17 +54,17 @@ const teamMembers = [
 
 export default function Team() {
   return (
-    <section id="team" className="py-12 md:py-20 bg-gray-50">
+    <section id="team" className="py-12 md:py-20 bg-gradient-to-b from-blue-50 to-purple-100 dark:bg-gradient-to-b dark:from-[hsl(0,0%,3.9%)] dark:to-[hsl(262,83%,20%)]">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">Meet Our Team</h2>
+        <h2 className="text-3xl font-bold text-center text-gray-900 mb-12 dark:text-white">Meet Our Team</h2>
         <div className="flex flex-wrap justify-center gap-8 max-w-[90rem] mx-auto">
           {teamMembers.map((member, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-1rem)] max-w-md flex-shrink-0">
+            <div key={index} className="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-1rem)] max-w-md flex-shrink-0">
               <div className="p-6">
                 <div className="flex items-center justify-between mb-4">
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900">{member.name}</h3>
-                    <p className="text-blue-600">{member.role}</p>
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{member.name}</h3>
+                    <p className="text-blue-600 dark:text-white">{member.role}</p>
                   </div>
                   <Image
                     src={member.image || `/placeholder.svg?height=80&width=80&text=${member.name}`}
@@ -74,10 +74,10 @@ export default function Team() {
                     className="rounded-full"
                   />
                 </div>
-                <p className="text-gray-600 mb-4 line-clamp-4">{member.bio}</p>
+                <p className="text-gray-600 mb-4 line-clamp-4 dark:text-white">{member.bio}</p>
                 <div className="mb-4">
                   {member.experience.map((exp, idx) => (
-                    <p key={idx} className="text-sm text-gray-500">
+                    <p key={idx} className="text-sm text-gray-500 dark:text-white">
                       {exp}
                     </p>
                   ))}

@@ -68,7 +68,7 @@ function AppPreview() {
   }, [])
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mt-20 py-16 bg-background rounded-2xl">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mt-20 py-16 bg-background rounded-2xl dark:bg-gray-900">
       {/* Mobile App Carousel */}
       <div className="relative w-full max-w-[320px] mx-auto" style={{ aspectRatio: '9/19.5' }}>
         <div className="relative w-full h-full flex justify-center items-center overflow-hidden">
@@ -107,9 +107,9 @@ function AppPreview() {
         </div>
       </div>
       {/* Mobile App Features */}
-      <div className="space-y-8">
-        <h3 className="text-2xl font-bold text-gray-900">Mobile App for On-the-Go Control</h3>
-        <p className="text-gray-600">
+      <div className="space-y-8 dark:text-white">
+        <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Mobile App for On-the-Go Control</h3>
+        <p className="text-gray-600 dark:text-white">
           Stay connected with your AI agent anytime, anywhere. Our mobile app puts the power of
           InfluAgent in your pocket. Check out the detail prototype design here.
         </p>
@@ -121,8 +121,8 @@ function AppPreview() {
               </svg>
             </div>
             <div>
-              <h4 className="text-lg font-semibold text-gray-900">Real-time Monitoring</h4>
-              <p className="text-gray-600">Track your agent's activities, view posts, comments, and trending data in real-time.</p>
+              <h4 className="text-lg font-semibold text-gray-900 dark:text-white">Real-time Monitoring</h4>
+              <p className="text-gray-600 dark:text-white">Track your agent's activities, view posts, comments, and trending data in real-time.</p>
             </div>
           </div>
 
@@ -133,8 +133,8 @@ function AppPreview() {
               </svg>
             </div>
             <div>
-              <h4 className="text-lg font-semibold text-gray-900">Agent Communication</h4>
-              <p className="text-gray-600">Chat with your AI agent to adjust strategies, fine-tune tasks, and provide feedback.</p>
+              <h4 className="text-lg font-semibold text-gray-900 dark:text-white">Agent Communication</h4>
+              <p className="text-gray-600 dark:text-white">Chat with your AI agent to adjust strategies, fine-tune tasks, and provide feedback.</p>
             </div>
           </div>
 
@@ -145,8 +145,8 @@ function AppPreview() {
               </svg>
             </div>
             <div>
-              <h4 className="text-lg font-semibold text-gray-900">Smart Notifications</h4>
-              <p className="text-gray-600">Receive instant alerts for important actions, approval requests, and performance milestones.</p>
+              <h4 className="text-lg font-semibold text-gray-900 dark:text-white">Smart Notifications</h4>
+              <p className="text-gray-600 dark:text-white">Receive instant alerts for important actions, approval requests, and performance milestones.</p>
             </div>
           </div>
 
@@ -157,8 +157,8 @@ function AppPreview() {
               </svg>
             </div>
             <div>
-              <h4 className="text-lg font-semibold text-gray-900">Quick Authorization</h4>
-              <p className="text-gray-600">Seamlessly manage permissions and authenticate social media accounts on the go.</p>
+              <h4 className="text-lg font-semibold text-gray-900 dark:text-white">Quick Authorization</h4>
+              <p className="text-gray-600 dark:text-white">Seamlessly manage permissions and authenticate social media accounts on the go.</p>
             </div>
           </div>
         </div>
@@ -211,10 +211,10 @@ export default function DashboardPreview() {
   }
 
   return (
-    <section className="py-12 md:py-20 bg-muted">
+    <section className="py-12 md:py-20 bg-gradient-to-b from-white to-blue-100 dark:from-[hsl(0,0%,3.9%)] dark:to-[hsl(221,83%,20%)]">
       <div id="ai-driven-automation" className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-foreground mb-8">AI-Driven Automation</h2>
-        <p className="text-xl text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
+        <h2 className="text-3xl font-bold text-center text-foreground dark:text-white mb-8">AI-Driven Automation</h2>
+        <p className="text-xl text-center text-muted-foreground dark:text-gray-300 mb-12 max-w-3xl mx-auto">
           Autonomous agent handling daily social media operations, from posting to engagement. AI develops and executes customized, long-term growth strategies.
         </p>
         
@@ -241,7 +241,7 @@ export default function DashboardPreview() {
               >
                 <div className="relative w-full h-full mx-auto">
                   <div 
-                    className="relative w-full h-full bg-card rounded-lg"
+                    className="relative w-full h-full bg-card dark:bg-gray-900 rounded-lg"
                     style={{ 
                       border: '3px solid hsl(var(--border))',
                       overflow: 'hidden'

@@ -59,27 +59,27 @@ const features = [
 
 export default function Features() {
   return (
-    <section id="features" className="py-12 md:py-20 bg-gray-50">
+    <section id="features" className="py-12 md:py-20 bg-gradient-to-b from-blue-50 to-purple-100 dark:bg-gradient-to-b dark:from-[hsl(0,0%,3.9%)] dark:to-[hsl(262,83%,20%)]">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">The Problems We Solve</h2>
+        <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">The Problems We Solve</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {problems.map((problem, index) => (
             <div
               key={index}
-              className="bg-white p-6 rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300"
+              className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300"
             >
-              <problem.icon className="w-12 h-12 text-blue-500 mb-4" />
-              <h3 className="text-xl font-semibold mb-2">{problem.title}</h3>
-              <p className="text-gray-600">{problem.description}</p>
+              <problem.icon className="w-12 h-12 text-blue-500 dark:text-blue-400 mb-4" />
+              <h3 className="text-xl font-semibold mb-2 dark:text-white">{problem.title}</h3>
+              <p className="text-gray-600 dark:text-gray-300">{problem.description}</p>
             </div>
           ))}
         </div>
-        <h2 className="text-3xl font-bold text-center text-gray-900 mb-12 mt-16">Product Features</h2>
+        <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12 mt-16">Product Features</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-white overflow-hidden rounded-xl shadow-lg hover:shadow-xl transform hover:scale-102 transition-all duration-300"
+              className="bg-white dark:bg-gray-900 overflow-hidden rounded-xl shadow-lg hover:shadow-xl transform hover:scale-102 transition-all duration-300"
             >
               <div className="h-64 overflow-hidden">
                 <img 
@@ -89,8 +89,8 @@ export default function Features() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-3 text-gray-800">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                <h3 className="text-xl font-bold mb-3 text-gray-800 dark:text-white">{feature.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{feature.description}</p>
               </div>
             </div>
           ))}

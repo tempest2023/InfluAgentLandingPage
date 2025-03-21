@@ -7,15 +7,15 @@ import { useWaitlist } from "@/contexts/waitlist-context"
 export default function Hero() {
   const { openWaitlist } = useWaitlist()
   return (
-    <section className="pt-32 pb-40 md:pt-48 md:pb-52 bg-gradient-to-b from-white to-blue-50">
+    <section className="pt-32 pb-40 md:pt-48 md:pb-52 bg-gradient-to-b from-white to-blue-100 dark:bg-gradient-to-b dark:from-[hsl(0,0%,3.9%)] dark:to-[hsl(221,83%,20%)]">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
           <div className="md:w-1/2">
             <div className="max-w-2xl">
-              <h1 className="text-5xl md:text-[4rem] font-bold text-gray-900 mb-10 leading-tight">
+              <h1 className="text-5xl md:text-[4rem] font-bold text-gray-900 dark:text-white mb-10 leading-tight">
                 Revolutionize Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Social Media</span> with AI
               </h1>
-              <p className="text-xl md:text-xl text-gray-600 mb-12 leading-relaxed">
+              <p className="text-xl md:text-xl text-gray-600 dark:text-gray-300 mb-12 leading-relaxed">
                 Achieve success in social growth with the help of a fully managed AI Agent. Hire your 24/7 AI marketing
                 expert to increase your influence across platforms.
               </p>
@@ -23,14 +23,14 @@ export default function Hero() {
                 <Button 
                   size="xl" 
                   onClick={openWaitlist}
-                  className="text-lg md:text-xl py-7 px-10 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 shadow-md hover:shadow-xl active:scale-95"
+                  className="text-lg md:text-xl py-7 px-10 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 dark:from-blue-500 dark:to-purple-500 dark:hover:from-blue-400 dark:hover:to-purple-400 dark:text-white transform hover:scale-105 transition-all duration-200 shadow-md hover:shadow-xl active:scale-95"
                 >
                   Start Free Trial
                 </Button>
                 <Button 
                   size="xl" 
                   variant="outline"
-                  className="text-lg md:text-xl py-7 px-10 border-2 hover:bg-gray-50 transform hover:scale-105 transition-all duration-200 hover:shadow-md active:scale-95"
+                  className="text-lg md:text-xl py-7 px-10 border-2 dark:border-gray-600 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:border-gray-500 dark:hover:text-white transform hover:scale-105 transition-all duration-200 hover:shadow-md active:scale-95"
                   onClick={() => {
                     const demoSection = document.querySelector('#ai-driven-automation');
                     if (demoSection) {

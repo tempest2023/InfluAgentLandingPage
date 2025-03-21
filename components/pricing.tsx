@@ -56,14 +56,14 @@ export default function Pricing() {
   const { openWaitlist } = useWaitlist()
 
   return (
-    <section id="pricing" className="py-12 md:py-20 bg-gray-50">
+    <section id="pricing" className="py-12 md:py-20 bg-gradient-to-b from-blue-50 to-purple-100 dark:bg-gradient-to-b dark:from-[hsl(0,0%,3.9%)] dark:to-[hsl(262,83%,20%)]">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">Choose Your Plan</h2>
+        <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">Choose Your Plan</h2>
         <div className="grid md:grid-cols-3 gap-8 items-start pt-4">
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transform hover:scale-105 hover:bg-indigo-600 
+              className={`bg-white dark:bg-gray-900 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transform hover:scale-105 hover:bg-indigo-600 
                 hover:shadow-[0_20px_40px_rgba(79,70,229,0.4)] transition-all duration-300 group
                 ${plan.highlighted ? "ring-2 ring-blue-500 relative shadow-[0_12px_35px_rgb(0,0,0,0.15)]" : ""}`}
             >
@@ -76,17 +76,17 @@ export default function Pricing() {
               )}
               <div className="h-full flex flex-col">
                 <div className="p-8 flex-grow">
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-4 group-hover:text-white">{plan.name}</h3>
+                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4 group-hover:text-white">{plan.name}</h3>
                   <div className="mb-4">
-                    <span className="text-4xl font-bold group-hover:text-white">{plan.price}</span>
-                    {plan.period && <span className="text-gray-600 group-hover:text-indigo-200">/{plan.period}</span>}
+                    <span className="text-4xl font-bold dark:text-white group-hover:text-white">{plan.price}</span>
+                    {plan.period && <span className="text-gray-600 dark:text-gray-400 group-hover:text-indigo-200">/{plan.period}</span>}
                   </div>
-                  <p className="text-gray-600 mb-6 group-hover:text-indigo-200">{plan.description}</p>
+                  <p className="text-gray-600 dark:text-gray-300 mb-6 group-hover:text-indigo-200">{plan.description}</p>
                   <ul className="mb-6 space-y-2">
                     {plan.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start">
-                        <Check className="w-5 h-5 text-green-500 group-hover:text-white mr-2 flex-shrink-0 mt-1" />
-                        <span className="text-gray-600 group-hover:text-white">{feature}</span>
+                        <Check className="w-5 h-5 text-green-500 dark:text-green-400 group-hover:text-white mr-2 flex-shrink-0 mt-1" />
+                        <span className="text-gray-600 dark:text-gray-300 group-hover:text-white">{feature}</span>
                       </li>
                     ))}
                   </ul>

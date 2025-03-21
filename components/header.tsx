@@ -4,6 +4,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
+// import { ThemeToggle } from "./theme-toggle"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -13,7 +14,7 @@ export default function Header() {
   }
 
   return (
-    <header className="fixed w-full bg-white bg-opacity-90 z-50 shadow-sm">
+    <header className="fixed w-full bg-white dark:bg-black bg-opacity-90 dark:bg-opacity-90 z-50 shadow-sm">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link href="/" className="flex items-center space-x-2">
           <div className="w-8 h-8 rounded-full overflow-hidden bg-white shadow-sm">
@@ -25,29 +26,30 @@ export default function Header() {
               className="object-cover"
             />
           </div>
-          <span className="text-2xl font-bold text-gray-800">InfluAgent</span>
+          <span className="text-2xl font-bold text-gray-800 dark:text-white">InfluAgent</span>
         </Link>
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-6">
-          <Link href="#features" className="text-gray-600 hover:text-gray-900">
+          <Link href="#features" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
             Features
           </Link>
-          <Link href="#pricing" className="text-gray-600 hover:text-gray-900">
+          <Link href="#pricing" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
             Pricing
           </Link>
-          <Link href="#team" className="text-gray-600 hover:text-gray-900">
+          <Link href="#team" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
             Team
           </Link>
-          <Link href="#faq" className="text-gray-600 hover:text-gray-900">
+          <Link href="#faq" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
             FAQ
           </Link>
-          <Link href="#contact" className="text-gray-600 hover:text-gray-900">
+          <Link href="#contact" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
             Contact
           </Link>
-          <Link href="/InfluAgentPreSeedBP/index.html" className="text-indigo-600 hover:text-indigo-800 font-medium">
+          <Link href="/InfluAgentPreSeedBP/index.html" className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 font-medium">
             Pre-Seed BP
           </Link>
+          {/* <ThemeToggle /> */}
         </nav>
 
         {/* Mobile Menu Button */}
